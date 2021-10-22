@@ -9,13 +9,14 @@ html {
 }
 
 body {
-  font-size: 20px;
+  // font-size: 20px;
   @include background;
   background: $primary-color;
   color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
-  font-family: "Patrick Hand", cursive;
+  // font-family: "Patrick Hand", cursive;
+  font-family: "Poppins", sans-serif;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
@@ -31,7 +32,7 @@ h3 {
     font-size: 5rem;
     font-weight: 900;
     &.modak-font {
-      font-family: "Modak", cursive;
+      // font-family: "Modak", cursive;
       font-weight: 400;
     }
   }
@@ -176,7 +177,7 @@ main {
     border-radius: 12px;
 
     h3 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       text-align: center;
     }
     h4 {
