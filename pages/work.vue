@@ -8,20 +8,21 @@
       <h2 class="sm-heading">Check out some of my projects...</h2>
       <div class="projects">
         <div v-for="(project, i) in projects" :key="i" class="item">
-          <a class="item-desc-wrapper" href="https://abhost.netlify.app/">
-            <img :src="project.image" alt="Project" />
-            <div class="desc">
-              <span>
-                {{ project.desc }}
-              </span>
+          <div class="project-image">
+            <a :href="project.urlProject">
+              <img :src="project.image" alt="Project" />
+            </a>
+            <div v-if="project.icon" class="project-icon">
+              <v-icon>{{ project.icon }}</v-icon>
             </div>
-          </a>
+          </div>
 
-          <a :href="project.urlProject" class="btn-light">
-            <v-icon dark large>mdi-eye</v-icon> Project
-          </a>
-          <a :href="project.urlGithub" class="btn-dark">
-            <v-icon dark large>mdi-github</v-icon> Github
+          <span class="desc">
+            {{ project.desc }}
+          </span>
+
+          <a :href="project.urlProject" class="btn-light project-link">
+            <v-icon left dark large>mdi-eye</v-icon> Project
           </a>
         </div>
       </div>
