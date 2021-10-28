@@ -64,11 +64,7 @@ export default {
       console.log(this.percentage);
     });
   },
-  watch: {
-    width(val) {
-      console.log(val);
-    }
-  },
+
   methods: {
     toggleMenu() {
       this.showMenu = !this.showMenu;
@@ -85,12 +81,13 @@ export default {
   .bar {
     content: "";
     position: fixed;
-    height: 8px;
+    height: 10px;
     background: linear-gradient(to left, #00ff73, #59b984);
     display: block;
     top: 0;
     left: 0;
     z-index: 10;
+    border-radius: 20px;
   }
 }
 </style>
