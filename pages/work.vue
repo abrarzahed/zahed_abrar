@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <main id="work">
+  <div class="work">
+    <div v-if="loading" class="loading">
+      <div class="spiner"></div>
+      <span>Loading...</span>
+    </div>
+    <main v-if="!loading" id="work">
       <h1 class="lg-heading modak-font">
         My
         <span class="text-secondary">Work</span>
@@ -27,7 +31,7 @@
         </div>
       </div>
     </main>
-    <AppFooter />
+    <AppFooter v-if="!loading" />
   </div>
 </template>
 
@@ -36,10 +40,42 @@ import projects from "@/api/projects";
 export default {
   data() {
     return {
-      projects: projects
+      projects: projects,
+      loading: true
     };
+  },
+  mounted() {
+    this.loading = false;
   }
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.work {
+  min-height: 100vh;
+  position: relative;
+
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    .spiner {
+      width: 100px;
+      height: 100px;
+      background: none;
+      border-radius: 50%;
+      border-top: 3px solid #fff;
+      border-bottom: 1px solid #fff;
+      animation: spinner 1s ease infinite;
+      margin-bottom: 20px;
+    }
+  }
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>

@@ -1,5 +1,6 @@
 <template>
-  <div class="bg-img">
+  <div class="bg-img" @click="print">
+    <div class="bar" :style="{ width: percentage }"></div>
     <header>
       <div @click="toggleMenu" class="menu-btn" :class="{ close: showMenu }">
         <div class="btn-line"></div>
@@ -47,14 +48,49 @@
 export default {
   data() {
     return {
-      showMenu: false
+      showMenu: false,
+      percentage: null,
+      scrollHeight: null,
+      vewportHeight: null,
+      maxScrollHeight: null
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", () => {
+      this.scrollHeight = document.body.scrollHeight;
+      this.vewportHeight = window.innerHeight;
+      this.maxScrollHeight = this.scrollHeight - this.vewportHeight;
+      this.percentage = `${(window.scrollY / this.maxScrollHeight) * 100}%`;
+      console.log(this.percentage);
+    });
+  },
+  watch: {
+    width(val) {
+      console.log(val);
+    }
   },
   methods: {
     toggleMenu() {
       this.showMenu = !this.showMenu;
+    },
+    print() {
+      console.log(this.width);
     }
   }
 };
 </script>
-<style scoped></style>
+<style lang="scss" scoped>
+.bg-img {
+  position: relative;
+  .bar {
+    content: "";
+    position: fixed;
+    height: 8px;
+    background: linear-gradient(to left, #00ff73, #59b984);
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+}
+</style>
