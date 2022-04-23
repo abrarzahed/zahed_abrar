@@ -5,7 +5,8 @@ const projects = [
     urlProject: "https://course.ocacademy.ca/",
     desc:
       ' "Ontario career academy"  e-commerce application. Including create course, update course, delete course, vouchers and match more functionalities. With nuxtjs, graphql, vuetify...',
-    icon: "mdi-nuxt"
+    icon: "mdi-nuxt",
+    tech: ["Vue.js", "Nuxt.js"]
   },
   {
     image: require("@/assets/img/projects/uni-blog.png"),
@@ -80,11 +81,18 @@ const projects = [
     icon: "mdi-language-css3"
   },
   {
+    image: require("@/assets/img/projects/Responsive Website 2022.png"),
+    urlProject: "https://digital-agency-landing-page.netlify.app/",
+    desc: "Responsive digital agency website with html css jquery.",
+    icon: "mdi-language-css3"
+  },
+  {
     image: require("@/assets/img/projects/digital-agency.png"),
     urlProject: "https://codezahed.netlify.app/",
     desc: "Responsive digital agency website with html css jquery.",
     icon: "mdi-jquery"
   },
+
   {
     image: require("@/assets/img/projects/Microsoft.png"),
     urlProject: "https://m-office.netlify.app/",

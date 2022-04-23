@@ -21,9 +21,9 @@
             </div>
           </div>
 
-          <span class="desc">
+          <!-- <span class="desc">
             {{ project.desc }}
-          </span>
+          </span> -->
 
           <a :href="project.urlProject" class="btn-light project-link">
             <v-icon left dark large>mdi-eye</v-icon> Project
