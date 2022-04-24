@@ -24,6 +24,24 @@
           <!-- <span class="desc">
             {{ project.desc }}
           </span> -->
+          <div class="technology ">
+            <h4>{{ project.title }}</h4>
+            <div class="chips">
+              <v-chip
+                outlined
+                dark
+                small
+                label
+                v-for="(chip, i) in project.tech"
+                :key="i"
+              >
+                <v-icon left>
+                  mdi-label
+                </v-icon>
+                {{ chip }}
+              </v-chip>
+            </div>
+          </div>
 
           <a :href="project.urlProject" class="btn-light project-link">
             <v-icon left dark large>mdi-eye</v-icon> Project

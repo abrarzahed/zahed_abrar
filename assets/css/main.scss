@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Roboto+Condensed:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 @import "config";
 @import "menu";
@@ -6,6 +6,7 @@ html {
 }
 * {
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -15,7 +16,6 @@ body {
   color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
-  font-family: "Roboto", sans-serif;
   // font-family: "Bubblegum Sans", cursive;
   line-height: 1.5;
   letter-spacing: 1.5px;
@@ -47,7 +47,7 @@ h3 {
     font-size: 5rem;
     font-weight: 900;
     &.modak-font {
-      font-family: "Bubblegum Sans", cursive;
+      // font-family: "Bubblegum Sans", cursive;
       // font-family: "Roboto Condensed", sans-serif;
       font-weight: 400;
     }
@@ -213,8 +213,8 @@ main {
   grid-template-columns: repeat(3, 1fr);
   .item {
     background: #2a2a2a;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 8px;
 
     display: grid;
     gap: 8px;
@@ -223,6 +223,7 @@ main {
     }
     .project-image {
       position: relative;
+      margin-bottom: 10px;
       .project-icon {
         position: absolute;
         top: 50%;
@@ -238,10 +239,10 @@ main {
         }
       }
       img {
-        border-radius: 12px;
+        border-radius: 8px;
         width: 100%;
-        min-height: 200px;
-        max-height: 200px;
+        min-height: 180px;
+        max-height: 180px;
         object-fit: cover;
         display: block;
         position: relative;
@@ -251,10 +252,29 @@ main {
         }
       }
     }
+    .technology {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+      h4 {
+        font-size: 16px;
+        font-weight: 200;
+        letter-spacing: 0.1em;
+        color: #ccc;
+        margin-bottom: 4px;
+        text-transform: capitalize;
+      }
+      .chips {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+      }
+    }
 
     a {
-      height: 50px;
-      border-radius: 12px;
+      margin-top: auto;
+      height: 40px;
+      border-radius: 8px;
       text-align: center;
       font-weight: bold;
       background: $secondary-color;
