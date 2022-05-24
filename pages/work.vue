@@ -9,7 +9,35 @@
         My
         <span class="text-secondary">Work</span>
       </h1>
-      <h2 class="sm-heading">Check out some of my projects...</h2>
+      <div class="projects-tab__header">
+        <h2 class="sm-heading">Check out my projects</h2>
+        <div class="projects-tab__header__btn__group">
+          <button
+            @click="toggleActiveButton('all')"
+            :class="{ active: activeTabItem === 'all' }"
+          >
+            All
+          </button>
+          <button
+            @click="toggleActiveButton('js')"
+            :class="{ active: activeTabItem === 'js' }"
+          >
+            Js
+          </button>
+          <button
+            @click="toggleActiveButton('css')"
+            :class="{ active: activeTabItem === 'css' }"
+          >
+            Css
+          </button>
+          <button
+            @click="toggleActiveButton('vueNuxt')"
+            :class="{ active: activeTabItem === 'vueNuxt' }"
+          >
+            Vue & Nuxt
+          </button>
+        </div>
+      </div>
       <div class="projects">
         <div v-for="(project, i) in projects" :key="i" class="item">
           <div class="project-image">
@@ -21,9 +49,6 @@
             </div>
           </div>
 
-          <!-- <span class="desc">
-            {{ project.desc }}
-          </span> -->
           <div class="technology ">
             <h4>{{ project.title }}</h4>
             <div class="chips">
@@ -59,11 +84,17 @@ export default {
   data() {
     return {
       projects: projects,
-      loading: true
+      loading: true,
+      activeTabItem: "all"
     };
   },
   mounted() {
     this.loading = false;
+  },
+  methods: {
+    toggleActiveButton(value) {
+      this.activeTabItem = value;
+    }
   }
 };
 </script>
@@ -72,6 +103,83 @@ export default {
 .work {
   min-height: 100vh;
   position: relative;
+  .projects-tab__header {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 0.5rem 1rem;
+    margin-bottom: 3rem;
+    justify-content: space-between;
+    @media (max-width: 1020px) {
+      padding: 1rem;
+      border-radius: 8px;
+      gap: 1rem;
+      flex-direction: column;
+    }
+    .sm-heading {
+      padding: 0;
+      margin: 0;
+      background: none;
+      border-radius: 0;
+    }
+    &__btn__group {
+      display: flex;
+      // gap: 1rem;
+      background: #1d1d1d;
+      border-radius: 100px;
+      button {
+        isolation: isolate;
+        position: relative;
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: #ddd;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        @media (max-width: 600px) {
+          padding: 0.3rem 0.9rem;
+          font-size: 0.6rem;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 0;
+          width: 100%;
+          background: #2c744c;
+          z-index: -1;
+        }
+        &.active {
+          &::before {
+            transition: height 0.2s linear;
+            height: 100%;
+          }
+        }
+        &:nth-child(1) {
+          border-radius: 100px 0 0 100px;
+          &::before {
+            border-radius: 100px 0 0 100px;
+          }
+        }
+        &:nth-child(2) {
+          border-left: 1px solid #444;
+          border-right: 1px solid #444;
+        }
+        &:nth-child(3) {
+          border-left: 1px solid #444;
+          border-right: 1px solid #444;
+        }
+        &:last-child {
+          border-radius: 0 100px 100px 0;
+          &::before {
+            border-radius: 0 100px 100px 0;
+          }
+        }
+      }
+    }
+  }
 
   .loading {
     position: absolute;

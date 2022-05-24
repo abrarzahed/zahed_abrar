@@ -5,11 +5,9 @@
         Zahed
         <span class="text-secondary">Abrar</span>
       </h1>
-      <h2 class="sm-heading scnd">
-        <span class="text-secondary">
-          <v-icon dark x-large>mdi-code-not-equal-variant</v-icon>
-        </span>
-        Front-end Software Developer.
+      <h2 class="sm-heading  scnd">
+        <span>Front-end Software Developer.</span>
+        <button @click="goToWorkPage">See My Projects</button>
       </h2>
       <div class="icons">
         <a href="https://facebook.com/abrar.hussen.357/">
@@ -26,3 +24,16 @@
     </main>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    goToWorkPage() {
+      this.$router.push("/work");
+    }
+  }
+};
+</script>
