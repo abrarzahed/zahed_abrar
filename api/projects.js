@@ -3,11 +3,22 @@ const projects = [
   {
     title: "Ontario Career Academy",
     image: require("@/assets/img/projects/OCA.png"),
-    urlProject: "https://course.ocacademy.ca/",
+    urlProject: "https://ocacademy.ca/",
     desc:
       ' "Ontario career academy"  e-commerce application. Including create course, update course, delete course, vouchers and match more functionalities. With nuxtjs, graphql, vuetify...',
     icon: "mdi-nuxt",
-    tech: ["vue.js", "nuxt.js", "vuetify", "graphql", "stripe"]
+    tech: ["vue.js", "nuxt.js", "vuetify", "graphql", "stripe"],
+    isRealProject: true
+  },
+  {
+    title: "Lighthouse Academy Canada",
+    image: require("@/assets/img/projects/OCA.png"),
+    urlProject: "https://course.lighthouseacademy.ca/",
+    desc:
+      ' "Ontario career academy"  e-commerce application. Including create course, update course, delete course, vouchers and match more functionalities. With nuxtjs, graphql, vuetify...',
+    icon: "mdi-nuxt",
+    tech: ["vue.js", "nuxt.js", "vuetify", "graphql", "stripe"],
+    isRealProject: true
   },
   {
     title: "Universal blog",

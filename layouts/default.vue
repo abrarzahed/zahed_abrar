@@ -61,7 +61,6 @@ export default {
       this.vewportHeight = window.innerHeight;
       this.maxScrollHeight = this.scrollHeight - this.vewportHeight;
       this.percentage = `${(window.scrollY / this.maxScrollHeight) * 100}%`;
-      console.log(this.percentage);
     });
   },
 

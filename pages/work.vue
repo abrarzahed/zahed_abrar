@@ -1,7 +1,7 @@
 <template>
   <div class="work">
     <div v-if="loading" class="loading">
-      <div class="spiner"></div>
+      <div class="spinner"></div>
       <span>Loading...</span>
     </div>
     <main v-if="!loading" id="work">
@@ -12,6 +12,12 @@
       <div class="projects-tab__header">
         <h2 class="sm-heading">Check out my projects</h2>
         <div class="projects-tab__header__btn__group">
+          <button
+            @click="toggleActiveButton('realProjects')"
+            :class="{ active: activeTabItem === 'realProjects' }"
+          >
+            Real Projects
+          </button>
           <button
             @click="toggleActiveButton('all')"
             :class="{ active: activeTabItem === 'all' }"
@@ -83,6 +89,8 @@ import projects from "@/api/projects";
 export default {
   data() {
     return {
+      initial: projects,
+      main: projects,
       projects: projects,
       loading: true,
       activeTabItem: "all"
@@ -94,6 +102,36 @@ export default {
   methods: {
     toggleActiveButton(value) {
       this.activeTabItem = value;
+      if (value === "all") {
+        this.projects = this.initial;
+      } else if (value === "js") {
+        this.projects = this.jsProjects;
+        console.log(this.projects);
+      } else if (value === "css") {
+        this.projects = this.cssProjects;
+        console.log(this.projects);
+      } else if (value === "vueNuxt") {
+        this.projects = this.vueNuxtProjects;
+        console.log(this.projects);
+      } else if (value === "realProjects") {
+        this.projects = this.realProjects;
+      }
+    }
+  },
+  computed: {
+    realProjects() {
+      return this.main.filter(item => item.isRealProject);
+    },
+    cssProjects() {
+      return this.main.filter(item => item.icon === "mdi-language-css3");
+    },
+    jsProjects() {
+      return this.main.filter(item => item.icon === "mdi-language-javascript");
+    },
+    vueNuxtProjects() {
+      return this.main.filter(
+        item => item.icon === "mdi-vuejs" || item.icon === "mdi-nuxt"
+      );
     }
   }
 };
@@ -124,7 +162,6 @@ export default {
     }
     &__btn__group {
       display: flex;
-      // gap: 1rem;
       background: #1d1d1d;
       border-radius: 100px;
       button {
@@ -133,12 +170,14 @@ export default {
         padding: 1rem 2rem;
         text-transform: uppercase;
         font-size: 0.8rem;
+        line-height: 1.6;
         color: #ddd;
         font-weight: 700;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.1em;
+        overflow: hidden;
         @media (max-width: 600px) {
           padding: 0.3rem 0.9rem;
-          font-size: 0.6rem;
+          font-size: 0.5rem;
         }
 
         &::before {
@@ -146,15 +185,16 @@ export default {
           position: absolute;
           top: 0;
           left: 0;
-          height: 0;
-          width: 100%;
+          height: 100%;
+          width: 0;
           background: #2c744c;
           z-index: -1;
+          transition: width 0.15s linear;
         }
         &.active {
           &::before {
-            transition: height 0.2s linear;
-            height: 100%;
+            transition: width 0.15s linear;
+            width: 100%;
           }
         }
         &:nth-child(1) {
@@ -168,6 +208,10 @@ export default {
           border-right: 1px solid #444;
         }
         &:nth-child(3) {
+          border-left: 1px solid #444;
+          border-right: 1px solid #444;
+        }
+        &:nth-child(4) {
           border-left: 1px solid #444;
           border-right: 1px solid #444;
         }
@@ -187,7 +231,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    .spiner {
+    .spinner {
       width: 100px;
       height: 100px;
       background: none;
