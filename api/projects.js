@@ -12,7 +12,7 @@ const projects = [
   },
   {
     title: "Ontario Career Academy",
-    image: require("@/assets/img/projects/oca.png"),
+    image: require("@/assets/img/projects/OCA.png"),
     urlProject: "https://ocacademy.ca/",
     desc:
       ' "Ontario career academy"  e-commerce application. Including create course, update course, delete course, vouchers and match more functionalities. With nuxtjs, graphql, vuetify...',
