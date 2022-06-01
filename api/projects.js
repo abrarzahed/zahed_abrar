@@ -25,7 +25,7 @@ const projects = [
     image: require("@/assets/img/projects/lha.png"),
     urlProject: "https://course.lighthouseacademy.ca/",
     desc:
-      ' "Ontario career academy"  e-commerce application. Including create course, update course, delete course, vouchers and match more functionalities. With nuxtjs, graphql, vuetify...',
+      ' "Ontario career academy"  e-commerce application. Including create course, update course, delete course, vouchers and match more functionalities. With nuxtjs, graphql, vuetify....',
     icon: "mdi-nuxt",
     tech: ["vue.js", "nuxt.js", "vuetify", "graphql", "stripe"],
     isRealProject: true
