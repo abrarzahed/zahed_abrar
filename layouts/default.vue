@@ -69,7 +69,7 @@ export default {
       this.showMenu = !this.showMenu;
     },
     print() {
-      console.log(this.width);
+      // console.log(this.width);
     }
   }
 };
@@ -80,7 +80,7 @@ export default {
   .bar {
     content: "";
     position: fixed;
-    height: 10px;
+    height: 6px;
     background: linear-gradient(to left, #00ff73, #59b984);
     display: block;
     top: 0;

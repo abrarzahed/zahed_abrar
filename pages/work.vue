@@ -25,22 +25,16 @@
             All
           </button>
           <button
-            @click="toggleActiveButton('js')"
-            :class="{ active: activeTabItem === 'js' }"
-          >
-            Js
-          </button>
-          <button
-            @click="toggleActiveButton('css')"
-            :class="{ active: activeTabItem === 'css' }"
-          >
-            Css
-          </button>
-          <button
             @click="toggleActiveButton('vueNuxt')"
             :class="{ active: activeTabItem === 'vueNuxt' }"
           >
             Vue & Nuxt
+          </button>
+          <button
+            @click="toggleActiveButton('js_css')"
+            :class="{ active: activeTabItem === 'js_css' }"
+          >
+            Js & Css
           </button>
         </div>
       </div>
@@ -104,15 +98,10 @@ export default {
       this.activeTabItem = value;
       if (value === "all") {
         this.projects = this.initial;
-      } else if (value === "js") {
-        this.projects = this.jsProjects;
-        console.log(this.projects);
-      } else if (value === "css") {
-        this.projects = this.cssProjects;
-        console.log(this.projects);
+      } else if (value === "js_css") {
+        this.projects = [...this.jsProjects, ...this.cssProjects];
       } else if (value === "vueNuxt") {
         this.projects = this.vueNuxtProjects;
-        console.log(this.projects);
       } else if (value === "realProjects") {
         this.projects = this.realProjects;
       }
@@ -162,13 +151,14 @@ export default {
     }
     &__btn__group {
       display: flex;
-      background: #1d1d1d;
+      background: #1f1f1f;
+      align-items: center;
       border-radius: 100px;
       button {
         isolation: isolate;
         position: relative;
         padding: 1rem 2rem;
-        text-transform: uppercase;
+        text-transform: capitalize;
         font-size: 0.8rem;
         line-height: 1.6;
         color: #ddd;
@@ -177,6 +167,7 @@ export default {
         overflow: hidden;
         @media (max-width: 600px) {
           padding: 0.3rem 0.9rem;
+          padding-top: 0.4rem;
           font-size: 0.5rem;
         }
 
@@ -211,10 +202,7 @@ export default {
           border-left: 1px solid #444;
           border-right: 1px solid #444;
         }
-        &:nth-child(4) {
-          border-left: 1px solid #444;
-          border-right: 1px solid #444;
-        }
+
         &:last-child {
           border-radius: 0 100px 100px 0;
           &::before {

@@ -1,8 +1,18 @@
 const projects = [
   // * vue, nuxt, vuetify
   {
+    title: "Nuxt World",
+    image: require("@/assets/img/projects/nuxtjs-world.png"),
+    urlProject: "https://nuxt-country-list.herokuapp.com//",
+    desc:
+      "A real application which contains details about every single country of the world. There is search option to search specific country",
+    icon: "mdi-nuxt",
+    tech: ["vue.js", "nuxt.js", "vuetify", "graphql", "stripe"],
+    isRealProject: false
+  },
+  {
     title: "Ontario Career Academy",
-    image: require("@/assets/img/projects/OCA.png"),
+    image: require("@/assets/img/projects/oca.png"),
     urlProject: "https://ocacademy.ca/",
     desc:
       ' "Ontario career academy"  e-commerce application. Including create course, update course, delete course, vouchers and match more functionalities. With nuxtjs, graphql, vuetify...',
@@ -12,7 +22,7 @@ const projects = [
   },
   {
     title: "Lighthouse Academy Canada",
-    image: require("@/assets/img/projects/OCA.png"),
+    image: require("@/assets/img/projects/lha.png"),
     urlProject: "https://course.lighthouseacademy.ca/",
     desc:
       ' "Ontario career academy"  e-commerce application. Including create course, update course, delete course, vouchers and match more functionalities. With nuxtjs, graphql, vuetify...',
@@ -86,6 +96,14 @@ const projects = [
     tech: ["html", "css", "vanilla javascript"]
   },
   // * html css javascript
+  {
+    title: "Some awesome web components",
+    image: require("@/assets/img/projects/photographer-portfolio.png"),
+    urlProject: "https://photographersitedemo.netlify.app/",
+    desc: "Simple but awesome portfolio website for photographers.",
+    icon: "mdi-language-css3",
+    tech: ["html", "css only"]
+  },
   {
     title: "Some awesome web components",
     image: require("@/assets/img/projects/WebComponent.png"),
