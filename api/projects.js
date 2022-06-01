@@ -5,7 +5,7 @@ const projects = [
     image: require("@/assets/img/projects/nuxtjs-world.png"),
     urlProject: "https://nuxt-country-list.herokuapp.com//",
     desc:
-      "A real application which contains details about every single country of the world. There is search option to search specific country",
+      "A real application which contains details about every single country of the world. And there is search option to search specific country",
     icon: "mdi-nuxt",
     tech: ["vue.js", "nuxt.js", "vuetify", "graphql", "stripe"],
     isRealProject: false
