@@ -5,7 +5,7 @@
       <span>Loading...</span>
     </div>
     <main v-if="!loading" id="work">
-      <h1 class="lg-heading modak-font">
+      <h1 class="lg-heading">
         My
         <span class="text-secondary">Work</span>
       </h1>

@@ -2,19 +2,21 @@
   <div>
     <v-form ref="form" v-model="isFormValid">
       <v-text-field
-        height="80"
+        height="60"
         solo
         dark
         type="text"
         label="Your Name *"
+        placeholder="Jon Doe"
         :rules="nameRules"
       ></v-text-field>
       <v-text-field
-        height="80"
+        height="60"
         solo
         dark
         type="text"
         label="Your Email"
+        placeholder="jon@example.com"
         :rules="emailRules"
       ></v-text-field>
       <v-textarea
@@ -23,6 +25,7 @@
         dark
         type="text"
         label="Message"
+        rows="4"
       ></v-textarea>
       <v-btn :disabled="!isFormValid" dark block color="#59B984" x-large
         >Submit</v-btn

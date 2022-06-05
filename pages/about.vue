@@ -1,7 +1,7 @@
 <template>
   <div>
     <main id="about">
-      <h1 class="lg-heading modak-font">
+      <h1 class="lg-heading">
         About
         <span class="text-secondary">Me</span>
       </h1>

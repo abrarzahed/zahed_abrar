@@ -43,7 +43,7 @@ export default {
   methods: {},
   computed: {
     singleBlog() {
-      return this.blogs.filter(item => item.id == this.$route.params.id);
+      return this.blogs.filter(item => item.title == this.$route.params.title);
     }
   }
 };
@@ -51,8 +51,6 @@ export default {
 
 <style lang="scss" scoped>
 .single-blog {
-  // padding: 1.5rem;
-  // background: #222;
   max-width: 800px;
   margin: auto;
   margin-top: 3rem;
@@ -61,8 +59,18 @@ export default {
     margin-bottom: 1.5rem;
     max-width: max-content;
     line-height: 1.2;
+    font-weight: 500;
+
+    @media screen and(max-width: 768px) {
+      text-align: left;
+      font-size: 1.8rem;
+    }
   }
-  // div {
-  // }
+  div {
+    text-align: left;
+    p {
+      color: red;
+    }
+  }
 }
 </style>

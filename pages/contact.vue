@@ -1,7 +1,7 @@
 <template>
   <div>
     <main id="contact">
-      <h1 class="lg-heading modak-font">
+      <h1 class="lg-heading">
         Contact
         <span class="text-secondary">Me</span>
       </h1>
@@ -73,6 +73,9 @@ export default {};
       @media (max-width: 600px) {
         display: none;
       }
+    }
+    span {
+      font-size: 1.3rem;
     }
   }
 }

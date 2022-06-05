@@ -11,7 +11,7 @@
 
       <div class="blogs">
         <div v-for="(blog, i) in blogs" :key="i" class="blogs-item">
-          <NuxtLink :to="`blogs/${blog.id}`">
+          <NuxtLink :to="`blogs/${blog.title}`">
             <div class="blog-icon">
               <v-icon color="#fff" size="60">mdi-language-javascript</v-icon>
             </div>
@@ -41,7 +41,7 @@ export default {
     const stringToHTML = function(str) {
       const dom = document.createElement("div");
       dom.innerHTML = str;
-      const text = dom.firstElementChild.textContent.slice(0, 90) + "...";
+      const text = dom.firstElementChild.textContent.slice(0, 90) + " ...";
       return text;
     };
 
@@ -73,13 +73,14 @@ export default {
     position: relative;
     transition: all 0.2s linear;
     box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 12px 17px rgba(0, 0, 0, 0.14);
     height: 100%;
     a {
       display: block;
       padding: 24px;
     }
     &:hover {
-      background: #222;
+      background: #2d2f2f;
       box-shadow: none;
     }
 
@@ -94,11 +95,17 @@ export default {
     h2 {
       font-size: 1.6rem;
       line-height: 1.2;
-      font-weight: 700;
+      font-weight: 500;
+      @media screen and(max-width: 768px) {
+        text-align: left;
+      }
     }
     p {
       margin-top: 1rem;
       font-size: 1.1rem;
+      @media screen and(max-width: 768px) {
+        text-align: left;
+      }
     }
   }
 }

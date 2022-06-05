@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
 @import "config";
 @import "menu";
 html {
@@ -7,7 +9,7 @@ html {
 }
 * {
   box-sizing: border-box;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 body {
@@ -17,9 +19,9 @@ body {
   color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
-  // font-family: "Bubblegum Sans", cursive;
-  line-height: 1.4;
-  letter-spacing: 0.05em;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  word-spacing: 0.1em;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -48,18 +50,12 @@ h3 {
     font-size: 5rem;
     font-weight: 900;
     font-family: "Josefin Sans", sans-serif;
-    &.modak-font {
-      // font-family: "Bubblegum Sans", cursive;
-      // font-family: "Roboto Condensed", sans-serif;
-      font-weight: 400;
-    }
   }
 
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 1rem;
     background: #2a2a2a;
-    // border-radius: 8px;
   }
 }
 
@@ -107,7 +103,7 @@ main {
       font-size: 30px;
     }
     button {
-      background: linear-gradient(to right, #2c744c, $secondary-color);
+      background: #2c744c;
       border-radius: 100px;
       padding: 0.5rem 2rem;
       color: #ddd;
@@ -118,7 +114,7 @@ main {
         font-size: 1rem;
       }
       &:hover {
-        background: linear-gradient(to right, $secondary-color, #2c744c);
+        opacity: 0.8;
       }
     }
   }
@@ -196,11 +192,12 @@ main {
       border-left: 10px solid $secondary-color;
       letter-spacing: 1px;
       @media (max-width: 600px) {
-        padding: 1rem;
-        font-size: 1.2rem;
+        padding: 0 1rem;
+        font-size: 1rem;
         border-radius: 12px;
         border: none;
-        text-align: center;
+        background: none;
+        // text-align: center;
       }
     }
   }
