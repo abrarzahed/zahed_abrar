@@ -43,7 +43,7 @@ export default {
   methods: {},
   computed: {
     singleBlog() {
-      return this.blogs.filter(item => item.title === this.$route.params.title);
+      return this.blogs.filter(item => item.id == this.$route.params.id);
     }
   }
 };

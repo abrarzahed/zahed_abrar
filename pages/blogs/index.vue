@@ -11,7 +11,7 @@
 
       <div class="blogs">
         <div v-for="(blog, i) in blogs" :key="i" class="blogs-item">
-          <NuxtLink :to="`blogs/${blog.title}`">
+          <NuxtLink :to="`blogs/${blog.id}`">
             <div class="blog-icon">
               <v-icon color="#fff" size="60">mdi-language-javascript</v-icon>
             </div>

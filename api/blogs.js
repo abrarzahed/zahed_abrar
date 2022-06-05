@@ -1,5 +1,6 @@
 const blogs = [
   {
+    id: 1,
     title: "An Overview of JavaScript",
     body: `
         <p style="margin-top: 1rem; font-size: 1.15rem">Javascript is a high-level, prototyped-based, object-oriented 
@@ -59,6 +60,7 @@ const blogs = [
         `
   },
   {
+    id: 3,
     title: "Concept of JavaScript Engine",
     body: `
        
@@ -108,6 +110,7 @@ const blogs = [
         `
   },
   {
+    id: 2,
     title: "Concept of JavaScript Runtime",
     body: `
        
