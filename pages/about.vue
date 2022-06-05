@@ -19,8 +19,10 @@
             I am Abrar Hussen Zahed. Introducing myself as a professional and
             passionate front-end web developer. I have developed a huge number
             of web applications. Most comfortable with javascript. Familiar with
-            frameworks like... Bootstrap, Tailwind CSS, vue.js, jquery. Besides,
-            I have experience in UI/UX design and wordpress Customization 😎.
+            frameworks like... Bootstrap, Tailwind CSS, jquery vue.js, nuxt.js.
+            Besides, I have experience in UI/UX design and WordPress
+            Customization. Isn't it superb?😎. If it is then click on WhatsApp
+            icon bellow and let me convert your dream into a web application.
           </p>
         </div>
 

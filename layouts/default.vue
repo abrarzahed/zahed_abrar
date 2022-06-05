@@ -29,6 +29,11 @@
             </NuxtLink>
           </li>
           <li @click="toggleMenu" class="nav-item" :class="{ show: showMenu }">
+            <NuxtLink to="/blogs" class="nav-link" active-class="test">
+              Blog
+            </NuxtLink>
+          </li>
+          <li @click="toggleMenu" class="nav-item" :class="{ show: showMenu }">
             <NuxtLink to="/contact" class="nav-link" active-class="test">
               Contact Me
             </NuxtLink>

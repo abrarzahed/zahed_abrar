@@ -19,7 +19,7 @@ body {
   margin: 0;
   // font-family: "Bubblegum Sans", cursive;
   line-height: 1.4;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -64,7 +64,7 @@ h3 {
 }
 
 a {
-  color: #cdcdcd;
+  color: #b1b2b3;
   text-decoration: none;
 }
 
@@ -187,12 +187,17 @@ main {
       font-weight: 700;
     }
     p {
+      font-weight: 400 !important;
       font-size: 1.4rem;
-      text-align: justify;
+      text-align: left;
       background: rgba(42, 42, 42, 0.5);
-      padding: 20px;
+      color: #b1b2b3;
+      padding: 20px 16px 20px 20px;
       border-left: 10px solid $secondary-color;
+      letter-spacing: 1px;
       @media (max-width: 600px) {
+        padding: 1rem;
+        font-size: 1.2rem;
         border-radius: 12px;
         border: none;
         text-align: center;
@@ -268,7 +273,7 @@ main {
         padding: 10px;
         .v-icon {
           font-size: 50px;
-          color: #cdcdcd;
+          color: #b1b2b3;
         }
       }
       img {
@@ -311,7 +316,7 @@ main {
       text-align: center;
       font-weight: bold;
       background: $secondary-color;
-      color: #cdcdcd;
+      color: #b1b2b3;
       &:hover {
         background: darken($secondary-color, 5);
       }
@@ -375,7 +380,7 @@ main {
 .btn-dark {
   @extend .btn;
   background: darken($primary-color, 50);
-  color: #cdcdcd;
+  color: #b1b2b3;
 }
 
 .btn-light {

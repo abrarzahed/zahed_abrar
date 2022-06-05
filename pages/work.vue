@@ -159,11 +159,11 @@ export default {
         position: relative;
         padding: 1rem 2rem;
         text-transform: capitalize;
-        font-size: 0.8rem;
+        font-size: 1rem;
         line-height: 1.6;
         color: #ddd;
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         overflow: hidden;
         @media (max-width: 600px) {
           padding: 0.3rem 0.9rem;
