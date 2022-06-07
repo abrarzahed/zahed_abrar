@@ -41,7 +41,8 @@ export default {
     const stringToHTML = function(str) {
       const dom = document.createElement("div");
       dom.innerHTML = str;
-      const text = dom.firstElementChild.textContent.slice(0, 90) + " ...";
+      let text = dom.firstElementChild.textContent.substr(0, 90);
+      text = text.substr(0, text.lastIndexOf(" ")) + " ...";
       return text;
     };
 

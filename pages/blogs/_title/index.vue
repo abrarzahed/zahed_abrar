@@ -25,7 +25,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.singleBlog);
+    // console.log(this.singleBlog);
     this.loading = false;
 
     const stringToHTML = function(str) {

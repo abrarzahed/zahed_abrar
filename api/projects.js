@@ -3,7 +3,7 @@ const projects = [
   {
     title: "Nuxt World",
     image: require("@/assets/img/projects/nuxtjs-world.png"),
-    urlProject: "https://nuxt-country-list.herokuapp.com//",
+    urlProject: "https://nuxt-country-list.herokuapp.com/",
     desc:
       "A real application which contains details about every single country of the world. And there is search option to search specific country",
     icon: "mdi-nuxt",
