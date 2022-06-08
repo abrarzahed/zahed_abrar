@@ -43,13 +43,17 @@
           <div class="project-image">
             <a :href="project.urlProject">
               <img :src="project.image" alt="Project" />
+              <!-- <nuxt-img
+                :src="project.image"
+                sizes="sm:100vw md:50vw lg:400px"
+              /> -->
             </a>
             <div v-if="project.icon" class="project-icon">
               <v-icon>{{ project.icon }}</v-icon>
             </div>
           </div>
 
-          <div class="technology ">
+          <div class="technology">
             <h4>{{ project.title }}</h4>
             <div class="chips">
               <v-chip
@@ -60,9 +64,7 @@
                 v-for="(chip, i) in project.tech"
                 :key="i"
               >
-                <v-icon left>
-                  mdi-label
-                </v-icon>
+                <v-icon left> mdi-label </v-icon>
                 {{ chip }}
               </v-chip>
             </div>
@@ -81,13 +83,26 @@
 <script>
 import projects from "@/api/projects";
 export default {
+  head: {
+    title: "Works",
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "I am Abrar Hussen Zahed. A professional and passionate front-end web developer. Check out my projects",
+      },
+    ],
+  },
   data() {
     return {
       initial: projects,
       main: projects,
       projects: projects,
       loading: true,
-      activeTabItem: "all"
+      activeTabItem: "all",
     };
   },
   mounted() {
@@ -105,24 +120,26 @@ export default {
       } else if (value === "realProjects") {
         this.projects = this.realProjects;
       }
-    }
+    },
   },
   computed: {
     realProjects() {
-      return this.main.filter(item => item.isRealProject);
+      return this.main.filter((item) => item.isRealProject);
     },
     cssProjects() {
-      return this.main.filter(item => item.icon === "mdi-language-css3");
+      return this.main.filter((item) => item.icon === "mdi-language-css3");
     },
     jsProjects() {
-      return this.main.filter(item => item.icon === "mdi-language-javascript");
+      return this.main.filter(
+        (item) => item.icon === "mdi-language-javascript"
+      );
     },
     vueNuxtProjects() {
       return this.main.filter(
-        item => item.icon === "mdi-vuejs" || item.icon === "mdi-nuxt"
+        (item) => item.icon === "mdi-vuejs" || item.icon === "mdi-nuxt"
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

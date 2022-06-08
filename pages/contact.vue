@@ -35,7 +35,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head: {
+    title: "Contact",
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "I am Abrar Hussen Zahed. A professional and passionate front-end web developer. Contact me +8801887877854/abrarzahed6986@gmail.com",
+      },
+    ],
+  },
+};
 </script>
 
 <style lang="scss">

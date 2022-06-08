@@ -5,7 +5,7 @@
         Zahed
         <span class="text-secondary">Abrar</span>
       </h1>
-      <h2 class="sm-heading  scnd">
+      <h2 class="sm-heading scnd">
         <span>Front-end Software Developer.</span>
         <button @click="goToWorkPage">See My Projects</button>
       </h2>
@@ -27,13 +27,26 @@
 
 <script>
 export default {
+  head: {
+    title: "Home",
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "I am Abrar Hussen Zahed. A professional and passionate front-end web developer. Contact me +8801887877854/abrarzahed6986@gmail.com",
+      },
+    ],
+  },
   data() {
     return {};
   },
   methods: {
     goToWorkPage() {
       this.$router.push("/work");
-    }
-  }
+    },
+  },
 };
 </script>

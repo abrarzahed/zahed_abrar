@@ -28,17 +28,30 @@
 <script>
 import blogs from "@/api/blogs";
 export default {
+  head: {
+    title: "Blogs",
+    meta: [
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "I am Abrar Hussen Zahed. A professional and passionate front-end web developer.",
+      },
+    ],
+  },
   data() {
     return {
       blogs: blogs,
       loading: true,
-      snippets: ""
+      snippets: "",
     };
   },
   mounted() {
     this.loading = false;
 
-    const stringToHTML = function(str) {
+    const stringToHTML = function (str) {
       const dom = document.createElement("div");
       dom.innerHTML = str;
       let text = dom.firstElementChild.textContent.substr(0, 90);
@@ -46,13 +59,13 @@ export default {
       return text;
     };
 
-    this.blogs.map(element => {
+    this.blogs.map((element) => {
       let snippet = stringToHTML(element.body);
       element.snippet = snippet;
     });
   },
   methods: {},
-  computed: {}
+  computed: {},
 };
 </script>
 
