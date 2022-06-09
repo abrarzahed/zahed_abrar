@@ -42,11 +42,12 @@
         <div v-for="(project, i) in projects" :key="i" class="item">
           <div class="project-image">
             <a :href="project.urlProject">
-              <img :src="project.image" alt="Project" />
-              <!-- <nuxt-img
-                :src="project.image"
-                sizes="sm:100vw md:50vw lg:400px"
-              /> -->
+              <NuxtImg
+                :src="`/projects/${project.image}`"
+                sizes="sm:100vw md:40vw lg:300px"
+                quality="60"
+                format="webp"
+              />
             </a>
             <div v-if="project.icon" class="project-icon">
               <v-icon>{{ project.icon }}</v-icon>

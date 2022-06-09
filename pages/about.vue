@@ -7,9 +7,12 @@
       </h1>
       <!-- <h2 class="sm-heading">Somthing About Me...</h2> -->
       <div class="about-info">
-        <img
-          src="@/assets/img/code-removebg.png"
-          alt="abrar"
+        <!--  -->
+        <NuxtImg
+          src="code-removebg.png"
+          sizes="sm:100vw md:40vw lg:400px"
+          quality="80"
+          format="webp"
           class="bio-image"
         />
 

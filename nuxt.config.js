@@ -3,7 +3,6 @@ import colors from "vuetify/es5/util/colors";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   // target: "static",
-  ssr: false,
   head: {
     titleTemplate: "%s - abrar",
     title: "zahed",
@@ -26,13 +25,17 @@ export default {
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [
+    {
+      path: "~/components", // will get any components nested in let's say /components/test too
+      pathPrefix: false,
+    },
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/vuetify
     "@nuxtjs/vuetify",
-
+    // https://go.nuxtjs.dev/vuetify
     // "@nuxtjs/fontawesome"
   ],
   // fontawesome: {
@@ -44,7 +47,7 @@ export default {
   //   }
   // },
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxt/image"],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
