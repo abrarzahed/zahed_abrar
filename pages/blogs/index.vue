@@ -74,11 +74,13 @@ export default {
   margin-top: 48px;
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 350px));
+  grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 350px));
   align-items: center;
-  justify-content: center;
   column-gap: 32px;
   row-gap: 56px;
+  @media screen and(max-width: 768px) {
+    justify-content: center;
+  }
 
   &-item {
     background: #2a2a2a;
@@ -109,7 +111,7 @@ export default {
     h2 {
       font-size: 1.6rem;
       line-height: 1.2;
-      font-weight: 500;
+      font-weight: 600;
       @media screen and(max-width: 768px) {
         text-align: left;
       }
