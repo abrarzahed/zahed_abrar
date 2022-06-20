@@ -1,52 +1,74 @@
 <template>
-  <div class="bg-img" @click="print">
-    <div class="bar" :style="{ width: percentage }"></div>
-    <header>
-      <div @click="toggleMenu" class="menu-btn" :class="{ close: showMenu }">
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-      </div>
-
-      <nav class="menu" :class="{ show: showMenu }">
-        <div class="menu-branding" :class="{ show: showMenu }">
-          <div class="portrait"></div>
+  <v-app class="body">
+    <div class="bg-img" @click="print">
+      <div class="bar" :style="{ width: percentage }"></div>
+      <header>
+        <div @click="toggleMenu" class="menu-btn" :class="{ close: showMenu }">
+          <div class="btn-line"></div>
+          <div class="btn-line"></div>
+          <div class="btn-line"></div>
         </div>
-        <ul class="menu-nav" :class="{ show: showMenu }">
-          <li @click="toggleMenu" class="nav-item" :class="{ show: showMenu }">
-            <NuxtLink to="/" class="nav-link" active-class="test">
-              Home
-            </NuxtLink>
-          </li>
-          <li @click="toggleMenu" class="nav-item" :class="{ show: showMenu }">
-            <NuxtLink to="/about" class="nav-link" active-class="test">
-              About Me
-            </NuxtLink>
-          </li>
-          <li @click="toggleMenu" class="nav-item" :class="{ show: showMenu }">
-            <NuxtLink to="/work" class="nav-link" active-class="test">
-              My Work
-            </NuxtLink>
-          </li>
-          <li @click="toggleMenu" class="nav-item" :class="{ show: showMenu }">
-            <NuxtLink to="/blogs" class="nav-link" active-class="test">
-              Blog
-            </NuxtLink>
-          </li>
-          <li @click="toggleMenu" class="nav-item" :class="{ show: showMenu }">
-            <NuxtLink to="/contact" class="nav-link" active-class="test">
-              Contact Me
-            </NuxtLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <v-main>
-      <Nuxt />
-    </v-main>
-    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-    <div class="elfsight-app-0cc624cf-85d8-468b-8811-863725f7874d"></div>
-  </div>
+
+        <nav class="menu" :class="{ show: showMenu }">
+          <div class="menu-branding" :class="{ show: showMenu }">
+            <div class="portrait"></div>
+          </div>
+          <ul class="menu-nav" :class="{ show: showMenu }">
+            <li
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
+              <NuxtLink to="/" class="nav-link" active-class="test">
+                Home
+              </NuxtLink>
+            </li>
+            <li
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
+              <NuxtLink to="/about" class="nav-link" active-class="test">
+                About Me
+              </NuxtLink>
+            </li>
+            <li
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
+              <NuxtLink to="/projects" class="nav-link" active-class="test">
+                My Projects
+              </NuxtLink>
+            </li>
+            <li
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
+              <NuxtLink to="/blogs" class="nav-link" active-class="test">
+                Blogs
+              </NuxtLink>
+            </li>
+            <li
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
+              <NuxtLink to="/contact" class="nav-link" active-class="test">
+                Contact Me
+              </NuxtLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <v-main>
+        <Nuxt />
+      </v-main>
+      <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+      <div class="elfsight-app-0cc624cf-85d8-468b-8811-863725f7874d"></div>
+    </div>
+  </v-app>
 </template>
 
 <script>
@@ -57,7 +79,7 @@ export default {
       percentage: null,
       scrollHeight: null,
       vewportHeight: null,
-      maxScrollHeight: null
+      maxScrollHeight: null,
     };
   },
   mounted() {
@@ -75,8 +97,8 @@ export default {
     },
     print() {
       // console.log(this.width);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -93,5 +115,8 @@ export default {
     z-index: 10;
     border-radius: 20px;
   }
+}
+.elfsight-app-0cc624cf-85d8-468b-8811-863725f7874d {
+  z-index: 100;
 }
 </style>

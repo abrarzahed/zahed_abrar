@@ -4,11 +4,14 @@
       <div class="spinner"></div>
       <span>Loading...</span>
     </div>
-    <main v-if="!loading" id="work">
+    <main v-else id="work">
       <h1 class="lg-heading">
         My
         <span class="text-secondary">Work</span>
       </h1>
+      <!-- **************************************** 
+      COMMENT: projects tab  
+      ***************************************** -->
       <div class="projects-tab__header">
         <h2 class="sm-heading">Check out my projects</h2>
         <div class="projects-tab__header__btn__group">
@@ -38,7 +41,11 @@
           </button>
         </div>
       </div>
-      <div class="projects">
+
+      <!-- **************************************** 
+      COMMENT: projects   
+      ***************************************** -->
+      <!-- <div class="projects">
         <div v-for="(project, i) in projects" :key="i" class="item">
           <div class="project-image">
             <a :href="project.urlProject">
@@ -75,6 +82,60 @@
             <v-icon left dark large>mdi-eye</v-icon> Project
           </a>
         </div>
+      </div> -->
+      <div class="projects">
+        <div v-for="(project, i) in projects" :key="i" class="item">
+          <div class="project-image">
+            <a :href="project.link" target="_blank">
+              <NuxtImg
+                :src="`${project.image}`"
+                sizes="sm:100vw md:40vw lg:300px"
+                quality="60"
+                format="webp"
+              />
+            </a>
+            <div v-if="project.icon" class="project-icon">
+              <v-icon>{{ project.icon }}</v-icon>
+            </div>
+            <div class="actions">
+              <div class="edit-icon">
+                <v-btn color="primary" fab small>
+                  <v-icon>mdi-pencil</v-icon>
+                </v-btn>
+              </div>
+              <div class="delete-icon">
+                <v-btn fab small color="error">
+                  <v-icon>mdi-delete</v-icon>
+                </v-btn>
+              </div>
+            </div>
+          </div>
+
+          <div class="technology">
+            <h4>{{ project.title }}</h4>
+            <div class="chips">
+              <v-chip
+                outlined
+                dark
+                small
+                label
+                v-for="(chip, i) in project.techs"
+                :key="i"
+              >
+                <v-icon left> mdi-label </v-icon>
+                {{ chip }}
+              </v-chip>
+            </div>
+          </div>
+
+          <a
+            :href="project.link"
+            target="_blank"
+            class="btn-light project-link"
+          >
+            <v-icon left dark large>mdi-eye</v-icon> Project
+          </a>
+        </div>
       </div>
     </main>
     <AppFooter v-if="!loading" />
@@ -82,8 +143,15 @@
 </template>
 
 <script>
+/* ****************************************
+COMMENT: imports
+***************************************** */
 import projects from "@/api/projects";
+import { colRef, projectsCollectionsOrderRefs } from "@/firebase";
+import { onSnapshot } from "firebase/firestore";
+
 export default {
+  async fetch() {},
   head: {
     title: "Works",
     meta: [
@@ -99,15 +167,27 @@ export default {
   },
   data() {
     return {
-      initial: projects,
+      initial: [],
       main: projects,
       projects: projects,
       loading: true,
       activeTabItem: "all",
+      fireProject: [],
     };
   },
   mounted() {
-    this.loading = false;
+    console.log("fetch hook");
+    onSnapshot(projectsCollectionsOrderRefs, (snapshot) => {
+      let tempProjects = [];
+      snapshot.docs.forEach((doc) => {
+        tempProjects.push({ ...doc.data(), id: doc.id });
+      });
+      this.initial = tempProjects;
+      this.main = tempProjects;
+      this.projects = tempProjects;
+      this.loading = false;
+      console.log(this.initial);
+    });
   },
   methods: {
     toggleActiveButton(value) {
@@ -125,7 +205,7 @@ export default {
   },
   computed: {
     realProjects() {
-      return this.main.filter((item) => item.isRealProject);
+      return this.main.filter((item) => item.isReal);
     },
     cssProjects() {
       return this.main.filter((item) => item.icon === "mdi-language-css3");

@@ -27,6 +27,7 @@
         label="Message"
         rows="4"
       ></v-textarea>
+
       <v-btn :disabled="!isFormValid" dark block color="#59B984" x-large
         >Submit</v-btn
       >
@@ -39,14 +40,14 @@ export default {
   data() {
     return {
       isFormValid: true,
-      nameRules: [v => !!v || "Name is required *"],
+      nameRules: [(v) => !!v || "Name is required *"],
       emailRules: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+/.test(v) || "E-mail must be valid"
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+/.test(v) || "E-mail must be valid",
       ],
-      messaageRules: [v => !!v || "This field is required *"]
+      messaageRules: [(v) => !!v || "This field is required *"],
     };
-  }
+  },
 };
 </script>
 

@@ -12,11 +12,13 @@ html {
   font-family: "DM Sans", sans-serif;
 }
 
-body {
+body,
+.body {
   // font-size: 20px;
   @include background;
-  background: $primary-color;
-  color: set-text-color($primary-color);
+  background: $primary-color !important;
+  // color: set-text-color($primary-color);
+  color: #eee !important;
   height: 100%;
   margin: 0;
   line-height: 1.5;
@@ -272,6 +274,12 @@ main {
           font-size: 50px;
           color: #eee;
         }
+      }
+      .actions {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
       }
       img {
         border-radius: 8px;
