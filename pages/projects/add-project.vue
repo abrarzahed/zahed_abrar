@@ -16,7 +16,7 @@ export default {
   methods: {},
   mounted() {
     if (!this.authUser) {
-      // this.$router.push("/login");
+      this.$router.push("/login");
     }
   },
   computed: {

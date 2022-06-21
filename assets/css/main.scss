@@ -276,10 +276,12 @@ main {
         }
       }
       .actions {
+        min-width: 100%;
         position: absolute;
         top: 0;
         left: 0;
         display: flex;
+        justify-content: space-between;
       }
       img {
         border-radius: 8px;
@@ -289,9 +291,10 @@ main {
         object-fit: cover;
         display: block;
         position: relative;
+        transition: opacity 0.6s;
         &:hover {
           opacity: 0.5;
-          @include easeOut;
+          // @include easeOut;
         }
       }
     }

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2 class="mb-4">Add a Project</h2>
+  <div class="update-form">
+    <!-- <h2 class="mb-4">Update Project</h2> -->
     <v-form ref="form" v-model="valid">
       <v-text-field
         :rules="titleRules"
@@ -63,9 +63,9 @@
         block
         color="primary"
         :loading="loading"
-        @click="addProject"
+        @click="updateProject"
       >
-        Add project
+        Update project
       </v-btn>
     </v-form>
   </div>
@@ -76,21 +76,16 @@
 COMMENT: imports
 ***************************************** */
 import { colRef } from "@/firebase";
-import { addDoc } from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
+import { mapActions, mapGetters } from "vuex";
 export default {
+  props: {
+    project: {
+      type: Object,
+    },
+  },
   data() {
     return {
-      /*
-      project
-    */
-      project: {
-        title: "",
-        image: "",
-        icon: "",
-        desc: "",
-        link: "",
-        techs: [],
-      },
       loading: false,
 
       /*
@@ -119,15 +114,21 @@ export default {
     };
   },
   methods: {
-    addProject() {
+    ...mapActions("auth/auth", ["updateEditDialog"]),
+    updateProject() {
       this.loading = true;
-      addDoc(colRef, { ...this.project, createdAt: Date.now() }).then(() => {
+      const updateDocRef = doc(colRef, this.project.id);
+      updateDoc(updateDocRef, this.project).then(() => {
         this.loading = false;
-        this.$refs.form.reset();
+        this.updateEditDialog(false);
       });
     },
   },
 };
 </script>
 
-<style></style>
+<style>
+.update-form {
+  padding: 2rem;
+}
+</style>

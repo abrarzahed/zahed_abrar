@@ -86,25 +86,33 @@
       <div class="projects">
         <div v-for="(project, i) in projects" :key="i" class="item">
           <div class="project-image">
-            <a :href="project.link" target="_blank">
-              <NuxtImg
-                :src="`${project.image}`"
-                sizes="sm:100vw md:40vw lg:300px"
-                quality="60"
-                format="webp"
-              />
-            </a>
+            <NuxtImg
+              :src="`${project.image}`"
+              sizes="sm:100vw md:40vw lg:300px"
+              quality="60"
+              format="webp"
+            />
             <div v-if="project.icon" class="project-icon">
               <v-icon>{{ project.icon }}</v-icon>
             </div>
-            <div class="actions">
+            <div class="actions" v-if="authUser">
               <div class="edit-icon">
-                <v-btn color="primary" fab small>
+                <v-btn
+                  @click="handleEditProject(project)"
+                  color="primary"
+                  fab
+                  small
+                >
                   <v-icon>mdi-pencil</v-icon>
                 </v-btn>
               </div>
               <div class="delete-icon">
-                <v-btn fab small color="error">
+                <v-btn
+                  @click="handleDeleteProject(project)"
+                  fab
+                  small
+                  color="error"
+                >
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </div>
@@ -137,6 +145,8 @@
           </a>
         </div>
       </div>
+      <DeleteProjectDialog :project="selectedProject" />
+      <EditProjectDialog :project="selectedProject" />
     </main>
     <AppFooter v-if="!loading" />
   </div>
@@ -146,8 +156,9 @@
 /* ****************************************
 COMMENT: imports
 ***************************************** */
-import projects from "@/api/projects";
-import { colRef, projectsCollectionsOrderRefs } from "@/firebase";
+
+import { mapActions, mapGetters } from "vuex";
+import { projectsCollectionsOrderRefs } from "@/firebase";
 import { onSnapshot } from "firebase/firestore";
 
 export default {
@@ -168,15 +179,17 @@ export default {
   data() {
     return {
       initial: [],
-      main: projects,
-      projects: projects,
+      main: [],
+      projects: [],
       loading: true,
       activeTabItem: "all",
       fireProject: [],
+      deleteDialog: false,
+      selectedProject: {},
     };
   },
   mounted() {
-    console.log("fetch hook");
+    console.log("auth user", this.authUser);
     onSnapshot(projectsCollectionsOrderRefs, (snapshot) => {
       let tempProjects = [];
       snapshot.docs.forEach((doc) => {
@@ -190,6 +203,7 @@ export default {
     });
   },
   methods: {
+    ...mapActions("auth/auth", ["updateDeleteDialog", "updateEditDialog"]),
     toggleActiveButton(value) {
       this.activeTabItem = value;
       if (value === "all") {
@@ -202,8 +216,18 @@ export default {
         this.projects = this.realProjects;
       }
     },
+    handleDeleteProject(project) {
+      this.selectedProject = project;
+      this.updateDeleteDialog(true);
+    },
+    handleEditProject(project) {
+      console.log("handle edit dialog");
+      this.selectedProject = project;
+      this.updateEditDialog(true);
+    },
   },
   computed: {
+    ...mapGetters("auth/auth", ["authUser"]),
     realProjects() {
       return this.main.filter((item) => item.isReal);
     },
