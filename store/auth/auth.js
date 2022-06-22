@@ -1,5 +1,5 @@
 export const state = () => ({
-  authUser: true,
+  authUser: null,
   deleteDialog: false,
   editDialog: false,
 });

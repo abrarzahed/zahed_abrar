@@ -95,7 +95,7 @@
             <div v-if="project.icon" class="project-icon">
               <v-icon>{{ project.icon }}</v-icon>
             </div>
-            <div class="actions" v-if="authUser">
+            <div class="actions" v-show="authUser">
               <div class="edit-icon">
                 <v-btn
                   @click="handleEditProject(project)"
@@ -158,13 +158,13 @@ COMMENT: imports
 ***************************************** */
 
 import { mapActions, mapGetters } from "vuex";
-import { projectsCollectionsOrderRefs } from "@/firebase";
-import { onSnapshot } from "firebase/firestore";
+import { colRef, projectsCollectionsOrderRefs } from "@/firebase";
+import { onSnapshot, getDocs } from "firebase/firestore";
 
 export default {
   async fetch() {},
   head: {
-    title: "Works",
+    title: "Projects",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -189,7 +189,9 @@ export default {
     };
   },
   mounted() {
-    console.log("auth user", this.authUser);
+    // console.log("auth user", this.authUser);
+
+    /*
     onSnapshot(projectsCollectionsOrderRefs, (snapshot) => {
       let tempProjects = [];
       snapshot.docs.forEach((doc) => {
@@ -199,8 +201,25 @@ export default {
       this.main = tempProjects;
       this.projects = tempProjects;
       this.loading = false;
-      console.log(this.initial);
+      // console.log(this.initial);
     });
+    */
+
+    /* 
+     get data without real time subscription.
+   */
+    getDocs(projectsCollectionsOrderRefs)
+      .then((snaps) => {
+        let tempProjects = [];
+        snaps.forEach((doc) => {
+          tempProjects.push({ ...doc.data(), id: doc.id });
+        });
+        this.initial = tempProjects;
+        this.main = tempProjects;
+        this.projects = tempProjects;
+        this.loading = false;
+      })
+      .catch((err) => console.log(err.message));
   },
   methods: {
     ...mapActions("auth/auth", ["updateDeleteDialog", "updateEditDialog"]),
@@ -221,7 +240,7 @@ export default {
       this.updateDeleteDialog(true);
     },
     handleEditProject(project) {
-      console.log("handle edit dialog");
+      // console.log("handle edit dialog");
       this.selectedProject = project;
       this.updateEditDialog(true);
     },

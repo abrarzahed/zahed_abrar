@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     goToWorkPage() {
-      this.$router.push("/work");
+      this.$router.push("/projects");
     },
   },
 };

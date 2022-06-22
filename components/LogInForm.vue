@@ -30,7 +30,6 @@
         >
           Login
         </v-btn>
-        <v-btn block color="primary" @click="logout"> logout </v-btn>
       </v-form>
     </div>
   </main>
@@ -60,16 +59,7 @@ export default {
       passRules: [(v) => !!v || "Enter password"],
     };
   },
-  mounted() {
-    // if (this.authUser) {
-    //   this.$router.push("/");
-    // }
-    const user = getAuth();
-    onAuthStateChanged(user, (usr) => {
-      console.log(usr);
-    });
-    // console.log(this.authUser);
-  },
+
   methods: {
     ...mapActions("auth/auth", ["updateAuthUser"]),
     login() {
@@ -83,14 +73,20 @@ export default {
         })
         .catch((err) => console.log(err.message));
     },
-    logout() {
-      const authUser = getAuth();
-      signOut(authUser)
-        .then(() => {
-          this.updateAuthUser(null);
-        })
-        .catch((err) => console.log(err.message));
-    },
+  },
+  mounted() {
+    if (this.authUser) {
+      this.$router.push("/projects/add-project");
+    }
+    /* 
+      subscription to auth: always listening to auth stage for any changes
+    */
+    /*
+    const user = getAuth();
+    onAuthStateChanged(user, (usr) => {
+      console.log(usr);
+    });
+    */
   },
   computed: {
     ...mapGetters("auth/auth", ["authUser"]),

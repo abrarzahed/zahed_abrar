@@ -118,7 +118,7 @@
     position: relative;
     font-size: 30px;
     // text-transform: uppercase;
-    padding: 0.5rem 0;
+    padding: 0.3rem 0;
     font-weight: 500;
     color: set-text-color($primary-color);
     text-decoration: none;
@@ -127,13 +127,13 @@
 
     &:hover {
       color: $secondary-color;
-      letter-spacing: 10px;
+      letter-spacing: 4px;
     }
   }
 }
 
 // Delay each nav item slide by 0.1s
-@for $x from 1 through 5 {
+@for $x from 1 through 8 {
   .nav-item:nth-child(#{$x}) {
     transition-delay: $x * 0.1s;
   }

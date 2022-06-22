@@ -59,19 +59,54 @@
                 Contact Me
               </NuxtLink>
             </li>
+            <li
+              v-if="!authUser"
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
+              <NuxtLink to="/login" class="nav-link" active-class="test">
+                Login
+              </NuxtLink>
+            </li>
+            <li
+              v-if="authUser"
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
+              <NuxtLink
+                to="/projects/add-project"
+                class="nav-link"
+                active-class="test"
+              >
+                Add Projects
+              </NuxtLink>
+            </li>
+
+            <li
+              v-if="authUser"
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
+              <v-btn dark block class="mt-3" color="#59b984" @click="logout">
+                logout
+              </v-btn>
+            </li>
           </ul>
         </nav>
       </header>
       <v-main>
         <Nuxt />
       </v-main>
-      <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-      <div class="elfsight-app-0cc624cf-85d8-468b-8811-863725f7874d"></div>
     </div>
   </v-app>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 export default {
   data() {
     return {
@@ -82,7 +117,37 @@ export default {
       maxScrollHeight: null,
     };
   },
+
+  methods: {
+    ...mapActions("auth/auth", ["updateAuthUser"]),
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+    print() {
+      // console.log(this.width);
+    },
+    logout() {
+      const User = getAuth();
+      signOut(User)
+        .then(() => {
+          this.updateAuthUser(null);
+          console.log(this.authUser);
+        })
+        .catch((err) => console.log(err.message));
+    },
+  },
   mounted() {
+    /* 
+      subscription to auth: always listening to auth stage for any changes
+    */
+
+    const user = getAuth();
+    // console.log("user in default", user);
+    onAuthStateChanged(user, (usr) => {
+      // console.log(usr);
+      this.updateAuthUser(usr);
+    });
+
     window.addEventListener("scroll", () => {
       this.scrollHeight = document.body.scrollHeight;
       this.vewportHeight = window.innerHeight;
@@ -90,14 +155,8 @@ export default {
       this.percentage = `${(window.scrollY / this.maxScrollHeight) * 100}%`;
     });
   },
-
-  methods: {
-    toggleMenu() {
-      this.showMenu = !this.showMenu;
-    },
-    print() {
-      // console.log(this.width);
-    },
+  computed: {
+    ...mapGetters("auth/auth", ["authUser"]),
   },
 };
 </script>

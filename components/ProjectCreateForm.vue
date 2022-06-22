@@ -2,6 +2,11 @@
   <div>
     <h2 class="mb-4">Add a Project</h2>
     <v-form ref="form" v-model="valid">
+      <v-switch
+        dark
+        v-model="project.isReal"
+        :label="`${project.isReal ? 'Real Project' : 'Practice Project'}`"
+      ></v-switch>
       <v-text-field
         :rules="titleRules"
         dark
@@ -84,6 +89,7 @@ export default {
       project
     */
       project: {
+        isReal: true,
         title: "",
         image: "",
         icon: "",
