@@ -37,12 +37,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default {
   data() {
@@ -69,24 +64,13 @@ export default {
         .then((userObj) => {
           this.updateAuthUser(userObj.user);
           this.loading = false;
-          this.$router.push("/");
+          this.$router.push("projects/add-project");
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => {
+          console.log(err.message);
+          this.loading = false;
+        });
     },
-  },
-  mounted() {
-    if (this.authUser) {
-      this.$router.push("/projects/add-project");
-    }
-    /* 
-      subscription to auth: always listening to auth stage for any changes
-    */
-    /*
-    const user = getAuth();
-    onAuthStateChanged(user, (usr) => {
-      console.log(usr);
-    });
-    */
   },
   computed: {
     ...mapGetters("auth/auth", ["authUser"]),

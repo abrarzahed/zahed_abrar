@@ -15,10 +15,13 @@ export default {
 
   methods: {},
   mounted() {
-    if (!this.authUser) {
-      this.$router.push("/login");
-    }
+    setTimeout(() => {
+      if (!this.authUser) {
+        this.$router.push("/login");
+      }
+    }, 1000);
   },
+
   computed: {
     ...mapGetters("auth/auth", ["authUser"]),
   },

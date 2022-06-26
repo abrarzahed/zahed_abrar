@@ -94,6 +94,7 @@ export default {
     a {
       display: block;
       padding: 24px;
+      color: #b1b2b3;
     }
     &:hover {
       background: #2d2f2f;

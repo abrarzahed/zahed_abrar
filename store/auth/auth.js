@@ -5,9 +5,6 @@ export const state = () => ({
 });
 
 export const mutations = {
-  REMOVE_AUTH_USER(state) {
-    state.authUser = null;
-  },
   UPDATE_DELETE_DIALOG(state, value) {
     state.deleteDialog = value;
   },
@@ -15,7 +12,8 @@ export const mutations = {
     state.editDialog = value;
   },
   UPDATE_AUTH_USER(state, obj) {
-    state.authUser = obj;
+    const copyObj = JSON.parse(JSON.stringify(obj));
+    state.authUser = copyObj;
   },
 };
 export const actions = {

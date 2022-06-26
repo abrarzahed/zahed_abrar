@@ -49,7 +49,7 @@ export default {
     ...mapActions("auth/auth", ["updateEditDialog"]),
     closeDialog() {
       this.updateEditDialog(false);
-      console.log("delete");
+      // console.log("delete");
     },
 
     deleteProject() {

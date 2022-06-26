@@ -1,6 +1,6 @@
 <template>
   <v-app class="body">
-    <div class="bg-img" @click="print">
+    <div class="bg-img">
       <div class="bar" :style="{ width: percentage }"></div>
       <header>
         <div @click="toggleMenu" class="menu-btn" :class="{ close: showMenu }">
@@ -97,8 +97,11 @@
           </ul>
         </nav>
       </header>
-      <v-main>
+      <v-main id="main">
         <Nuxt />
+        <a href="https://wa.me/+8801887877854" target="_blank" class="wp-icon">
+          <v-icon large color="#eee">mdi-whatsapp</v-icon>
+        </a>
       </v-main>
     </div>
   </v-app>
@@ -123,15 +126,13 @@ export default {
     toggleMenu() {
       this.showMenu = !this.showMenu;
     },
-    print() {
-      // console.log(this.width);
-    },
+
     logout() {
       const User = getAuth();
       signOut(User)
         .then(() => {
           this.updateAuthUser(null);
-          console.log(this.authUser);
+          this.$router.push("/login");
         })
         .catch((err) => console.log(err.message));
     },
@@ -142,9 +143,7 @@ export default {
     */
 
     const user = getAuth();
-    // console.log("user in default", user);
     onAuthStateChanged(user, (usr) => {
-      // console.log(usr);
       this.updateAuthUser(usr);
     });
 
@@ -160,7 +159,24 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+
+<style lang="scss">
+#main {
+  position: relative;
+  .wp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    background: #59b984;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    outline: 2px solid #1d1d1d;
+    animation: blink 1s linear infinite;
+  }
+}
 .bg-img {
   position: relative;
   .bar {
@@ -175,7 +191,10 @@ export default {
     border-radius: 20px;
   }
 }
-.elfsight-app-0cc624cf-85d8-468b-8811-863725f7874d {
-  z-index: 100;
+@keyframes blink {
+  to {
+    outline-offset: 0.5rem;
+    outline-color: #59b984;
+  }
 }
 </style>

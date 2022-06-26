@@ -45,7 +45,7 @@ export default {
     ...mapActions("auth/auth", ["updateDeleteDialog"]),
     closeDialog() {
       this.updateDeleteDialog(false);
-      console.log("delete");
+      // console.log("delete");
     },
 
     deleteProject() {
