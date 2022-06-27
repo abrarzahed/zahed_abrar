@@ -120,6 +120,73 @@ export default {
       maxScrollHeight: null,
     };
   },
+  mounted() {
+    /* 
+      COMMENT: subscription to auth: always listening to auth stage for any changes
+    */
+    const user = getAuth();
+    onAuthStateChanged(user, (usr) => {
+      this.updateAuthUser(usr);
+    });
+
+    /* 
+      COMMENT: Tracking user activity & auto logout inactive user.
+    */
+    /*
+    let warningTimeoutID = undefined;
+    let logoutTimeoutID = undefined;
+    const events = ["click", "mousemove", "mousedown", "keydown"];
+
+    const callTimeoutFunc = function () {
+      console.log(
+        `You have been inactive for 5 seconds. we are almost to logout`
+      );
+      logoutTimeoutID = setTimeout(() => {
+        console.log(`logout occurring`);
+        const User = getAuth();
+        signOut(User)
+          .then(() => {
+            this.$router.push("/login");
+          })
+          .catch((err) => console.log(err.message));
+      }, 2000);
+    };
+
+    const eventHandler = function () {
+      if (logoutTimeoutID) {
+        clearTimeout(logoutTimeoutID);
+      }
+      clearTimeout(warningTimeoutID);
+      warningTimeoutID = setTimeout(callTimeoutFunc, 5000);
+    };
+
+    window.addEventListener("DOMContentLoaded", () => {
+      console.log("test test");
+      if (this.authUser) {
+        warningTimeoutID = setTimeout(callTimeoutFunc, 5000);
+        events.forEach((event) => {
+          window.addEventListener(event, eventHandler);
+        });
+      } else {
+        clearTimeout(warningTimeoutID);
+        clearTimeout(logoutTimeoutID);
+        events.forEach((event) => {
+          window.removeEventListener(event, eventHandler);
+        });
+      }
+    });
+    */
+
+    /* 
+      COMMENT: In order to show custom scrollbar on top
+    */
+    window.addEventListener("scroll", () => {
+      this.scrollHeight = document.body.scrollHeight;
+      this.vewportHeight = window.innerHeight;
+      this.maxScrollHeight = this.scrollHeight - this.vewportHeight;
+      this.percentage = `${(window.scrollY / this.maxScrollHeight) * 100}%`;
+    });
+  },
 
   methods: {
     ...mapActions("auth/auth", ["updateAuthUser"]),
@@ -137,23 +204,7 @@ export default {
         .catch((err) => console.log(err.message));
     },
   },
-  mounted() {
-    /* 
-      subscription to auth: always listening to auth stage for any changes
-    */
 
-    const user = getAuth();
-    onAuthStateChanged(user, (usr) => {
-      this.updateAuthUser(usr);
-    });
-
-    window.addEventListener("scroll", () => {
-      this.scrollHeight = document.body.scrollHeight;
-      this.vewportHeight = window.innerHeight;
-      this.maxScrollHeight = this.scrollHeight - this.vewportHeight;
-      this.percentage = `${(window.scrollY / this.maxScrollHeight) * 100}%`;
-    });
-  },
   computed: {
     ...mapGetters("auth/auth", ["authUser"]),
   },

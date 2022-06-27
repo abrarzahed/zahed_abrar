@@ -23,14 +23,24 @@
         required
         v-model.trim="project.image"
       ></v-text-field>
-      <v-text-field
+      <!-- <v-text-field
         :rules="iconRules"
         dark
         filled
         label="Project icon"
         required
         v-model.trim="project.icon"
-      ></v-text-field>
+      ></v-text-field> -->
+      <v-select
+        filled
+        dark
+        :items="icons"
+        label="Project icon"
+        required
+        :menu-props="{ bottom: true, offsetY: true }"
+        :rules="iconRules"
+        v-model.trim="project.icon"
+      ></v-select>
       <v-textarea
         rows="3"
         dark
@@ -116,6 +126,14 @@ export default {
         "bootstrap",
         "tailwindcss",
       ],
+      icons: [
+        "mdi-language-css3",
+        "mdi-nuxt",
+        "mdi-vuejs",
+        "mdi-vuetify",
+        "mdi-language-javascript",
+        "mdi-jquery",
+      ],
     };
   },
   methods: {
@@ -134,6 +152,6 @@ export default {
 
 <style>
 .update-form {
-  padding: 2rem;
+  padding: 0 2rem 2rem;
 }
 </style>

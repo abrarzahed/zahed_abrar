@@ -2,9 +2,12 @@
   <div class="text-center">
     <v-dialog persistent v-model="editDialog" width="800">
       <v-card dark>
-        <v-card-title class="text-h5 mb-5 black darken-2">
-          Edit Project
-        </v-card-title>
+        <v-card-title class="text-h5"> Edit Project </v-card-title>
+        <v-divider></v-divider>
+
+        <v-card-text v-if="project.createdAt" class="mt-4">
+          <b>Created At: </b>{{ new Date(project.createdAt).toLocaleString() }}
+        </v-card-text>
 
         <ProjectEditForm :project="project" />
 
@@ -21,7 +24,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import { colRef, projectsCollectionsOrderRefs } from "@/firebase";
+import { colRef } from "@/firebase";
 import {
   onSnapshot,
   addDoc,

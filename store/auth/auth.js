@@ -2,6 +2,7 @@ export const state = () => ({
   authUser: null,
   deleteDialog: false,
   editDialog: false,
+  snackbar: false,
 });
 
 export const mutations = {
@@ -15,6 +16,9 @@ export const mutations = {
     const copyObj = JSON.parse(JSON.stringify(obj));
     state.authUser = copyObj;
   },
+  UPDATE_SNACKBAR(state, value) {
+    state.snackbar = value;
+  },
 };
 export const actions = {
   updateDeleteDialog(context, value) {
@@ -26,6 +30,9 @@ export const actions = {
   updateAuthUser(context, obj) {
     context.commit("UPDATE_AUTH_USER", obj);
   },
+  updateSnackbar(context, value) {
+    context.commit("UPDATE_SNACKBAR", value);
+  },
 };
 export const getters = {
   authUser(state) {
@@ -36,5 +43,8 @@ export const getters = {
   },
   editDialog(state) {
     return state.editDialog;
+  },
+  getSnackbar(state) {
+    return state.snackbar;
   },
 };

@@ -32,6 +32,7 @@
         </v-btn>
       </v-form>
     </div>
+    <Snackbar :snackbar="snackbar" />
   </main>
 </template>
 
@@ -52,11 +53,12 @@ export default {
         (v) => /.+@.+/.test(v) || "E-mail must be valid",
       ],
       passRules: [(v) => !!v || "Enter password"],
+      snackbar: {},
     };
   },
 
   methods: {
-    ...mapActions("auth/auth", ["updateAuthUser"]),
+    ...mapActions("auth/auth", ["updateAuthUser", "updateSnackbar"]),
     login() {
       this.loading = true;
       const authUser = getAuth();
@@ -64,11 +66,14 @@ export default {
         .then((userObj) => {
           this.updateAuthUser(userObj.user);
           this.loading = false;
+          this.snackbar = { text: "Successfully logged in", color: "#59B984" };
+          this.updateSnackbar(true);
           this.$router.push("projects/add-project");
         })
         .catch((err) => {
-          console.log(err.message);
           this.loading = false;
+          this.updateSnackbar(true);
+          this.snackbar = { text: err.message, color: "crimson" };
         });
     },
   },

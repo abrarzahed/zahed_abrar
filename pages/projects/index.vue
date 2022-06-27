@@ -45,44 +45,6 @@
       <!-- **************************************** 
       COMMENT: projects   
       ***************************************** -->
-      <!-- <div class="projects">
-        <div v-for="(project, i) in projects" :key="i" class="item">
-          <div class="project-image">
-            <a :href="project.urlProject">
-              <NuxtImg
-                :src="`/projects/${project.image}`"
-                sizes="sm:100vw md:40vw lg:300px"
-                quality="60"
-                format="webp"
-              />
-            </a>
-            <div v-if="project.icon" class="project-icon">
-              <v-icon>{{ project.icon }}</v-icon>
-            </div>
-          </div>
-
-          <div class="technology">
-            <h4>{{ project.title }}</h4>
-            <div class="chips">
-              <v-chip
-                outlined
-                dark
-                small
-                label
-                v-for="(chip, i) in project.tech"
-                :key="i"
-              >
-                <v-icon left> mdi-label </v-icon>
-                {{ chip }}
-              </v-chip>
-            </div>
-          </div>
-
-          <a :href="project.urlProject" class="btn-light project-link">
-            <v-icon left dark large>mdi-eye</v-icon> Project
-          </a>
-        </div>
-      </div> -->
       <div class="projects">
         <div v-for="(project, i) in projects" :key="i" class="item">
           <div class="project-image">
@@ -192,7 +154,6 @@ export default {
   mounted() {
     // console.log("auth user", this.authUser);
 
-    /*
     onSnapshot(projectsCollectionsOrderRefs, (snapshot) => {
       let tempProjects = [];
       snapshot.docs.forEach((doc) => {
@@ -204,11 +165,12 @@ export default {
       this.loading = false;
       // console.log(this.initial);
     });
-    */
 
     /* 
      get data without real time subscription.
    */
+
+    /*
     getDocs(projectsCollectionsOrderRefs)
       .then((snaps) => {
         let tempProjects = [];
@@ -221,6 +183,7 @@ export default {
         this.loading = false;
       })
       .catch((err) => console.log(err.message));
+      */
   },
   methods: {
     ...mapActions("auth/auth", ["updateDeleteDialog", "updateEditDialog"]),
