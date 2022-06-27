@@ -1,8 +1,8 @@
 <template>
   <div class="text-center">
-    <v-dialog persistent v-model="deleteDialog" width="500">
-      <v-card dark>
-        <v-card-title class="text-h5">
+    <v-dialog persistent v-model="deleteDialog" max-width="600">
+      <v-card dark style="border: 1px solid #424242">
+        <v-card-title class="text-h5 accent">
           Are you sure want to delete this project?
         </v-card-title>
         <v-divider></v-divider>

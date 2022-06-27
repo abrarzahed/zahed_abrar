@@ -1,8 +1,8 @@
 <template>
   <div class="text-center">
-    <v-dialog persistent v-model="editDialog" width="800">
-      <v-card dark>
-        <v-card-title class="text-h5"> Edit Project </v-card-title>
+    <v-dialog persistent v-model="editDialog" max-width="700">
+      <v-card dark style="border: 1px solid #424242">
+        <v-card-title class="text-h5 accent"> Edit Project </v-card-title>
         <v-divider></v-divider>
 
         <v-card-text v-if="project.createdAt" class="mt-4">
