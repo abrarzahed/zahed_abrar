@@ -2,10 +2,24 @@
 .menu-btn {
   position: absolute;
   z-index: 3;
-  right: 30px;
+  right: 20px;
   top: 20px;
+  height: 50px;
+  width: 52px;
   cursor: pointer;
+  padding-top: 2px;
+  outline: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  animation: blinkMenu 1s linear infinite;
   @include easeOut;
+
+  &:hover {
+    animation: none;
+  }
 
   .btn-line {
     width: 28px;
@@ -22,7 +36,7 @@
     .btn-line {
       // Line 1 - Rotate
       &:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(8px, 8px);
       }
 
       // Line 2 - Hide
@@ -32,12 +46,17 @@
 
       // Line 3 - Rotate
       &:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
+        transform: rotate(-45deg) translate(4px, -4px);
       }
     }
   }
 }
-
+@keyframes blinkMenu {
+  to {
+    outline-color: #b1b2b3;
+    outline-offset: 4px;
+  }
+}
 // Menu Overlay
 .menu {
   position: fixed;

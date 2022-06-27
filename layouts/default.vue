@@ -175,6 +175,9 @@ export default {
     border-radius: 50%;
     outline: 2px solid #1d1d1d;
     animation: blink 1s linear infinite;
+    &:hover {
+      animation: none;
+    }
   }
 }
 .bg-img {

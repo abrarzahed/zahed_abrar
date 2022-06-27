@@ -3,6 +3,9 @@
 </template>
 
 <script>
+/****************************************** 
+COMMENT: cloudinary pass: RB/)Jx@q76@vEhP
+******************************************/
 export default {};
 </script>
 
