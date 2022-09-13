@@ -13,7 +13,7 @@
         <div v-for="(blog, i) in blogs" :key="i" class="blogs-item">
           <NuxtLink :to="`blogs/${blog.title}`">
             <div class="blog-icon">
-              <v-icon color="#fff" size="60">mdi-language-javascript</v-icon>
+              <v-icon color="#fff" size="60">{{ blog.icon }}</v-icon>
             </div>
             <h2>{{ blog.title }}</h2>
             <p>{{ blog.snippet }}</p>
@@ -54,6 +54,7 @@ export default {
     const stringToHTML = function (str) {
       const dom = document.createElement("div");
       dom.innerHTML = str;
+      if (!dom.firstElementChild) return;
       let text = dom.firstElementChild.textContent.substr(0, 90);
       text = text.substr(0, text.lastIndexOf(" ")) + " ...";
       return text;

@@ -2,6 +2,7 @@ const blogs = [
   {
     id: 1,
     title: "An Overview of JavaScript",
+    icon: "mdi-language-javascript",
     body: `
         <p style="margin-top: 1rem; font-size: 1.15rem">Javascript is a high-level, prototyped-based, object-oriented, 
         multi-paradigm, dynamic, single-threaded, garbage-collected 
@@ -57,11 +58,12 @@ const blogs = [
 
         <p style="margin-top: 1rem; font-size: 1.15rem">By using non-blocking event loop, javascript takes long running tasks and execute them in background. And then puts them back in the main thread once they are finished.</p>
 
-        `
+        `,
   },
   {
-    id: 3,
+    id: 2,
     title: "Concept of JavaScript Engine",
+    icon: "mdi-language-javascript",
     body: `
        
         <p style="margin-top: 1rem; font-size: 1.15rem">What is javaScript engine? <br/> Javascript engine is a program that executes javascript code.</p>
@@ -107,11 +109,12 @@ const blogs = [
 
         
 
-        `
+        `,
   },
   {
-    id: 2,
+    id: 3,
     title: "Concept of JavaScript Runtime",
+    icon: "mdi-language-javascript",
     body: `
        
         <p style="margin-top: 1rem; font-size: 1.15rem"> What is javaScript runtime? <br/> The most common javaScript runtime is the browser.</p>
@@ -133,11 +136,12 @@ const blogs = [
 
         
 
-        `
+        `,
   },
   {
-    id: 3,
+    id: 4,
     title: "Execution Context in JavaScript",
+    icon: "mdi-language-javascript",
     body: `
        
         <p style="margin-top: 1rem; font-size: 1.15rem"> After compilation of javascript code, there will be a global execution
@@ -297,7 +301,223 @@ const blogs = [
 
 
 
-        `
-  }
+        `,
+  },
+  {
+    id: 5,
+    title: "Modern - Clean Code Tips and Programming Paradigms in Javascript",
+    icon: "mdi-language-javascript",
+    body: `
+    <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 2.2rem 0">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Readable Code</h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+            Write code so that other can  understand it.
+          </li>
+          <li>
+          Write code so that you can understand it in 1 year at least.
+          </li>
+          <li>
+          Avoid too "clever" and "overcomplicated" solutions. Strict with simple and straight solution as much as possible.
+          </li>
+          <li>
+          Use descriptive variable names (what they contain)
+          </li>
+          <li>
+          Use descriptive function names (what they do)
+          </li>
+        </ul>
+     </div>
+
+    <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 2.2rem 0">
+        <h3 style="font-size: 1.5rem;font-wight: 500">General</h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Use DRY principle (refactor your code)
+          </li>
+          <li>
+          Dont pollute global namespace, encapsulate instead into function and es6 class
+          </li>
+          <li>
+          Don't use var
+          </li>
+          <li>
+          Use strong type checks (=== and !==)
+          </li>
+        </ul>
+     </div>
+
+    <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 2.2rem 0">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Functions</h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Generally functions should do only one thing
+          </li>
+          <li>
+          Don't do more than e function parameters
+          </li>
+          <li>
+          Use default parameter whenever possible
+          </li>
+          <li>
+          Generally, try to return same data type as received (not mandatory)
+          </li>
+          <li>
+          Use arrow functions when they make code more readable (such as callback functions of array methods)
+          </li>
+        </ul>
+     </div>
+
+    <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 2.2rem 0">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Object oriented Programming</h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Use es6 classes(most preferred way)
+          </li>
+          <li>
+          Encapsulate data and don't mutate them from outside the class
+          </li>
+          <li>
+          Implement method chaining by returning "this" from methods.
+          </li>
+          <li>
+          Don't use arrow functions as methods (in regular objects). Because arrow functions doesn't have this keyword.
+          </li>
+        </ul>
+     </div>
+
+    <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 2.2rem 0">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Avoid Nested Code  ({ { } })
+        </h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Use early return. Guard class might be an example.
+          </li>
+          <li>
+          Use ternary (conditional) or logical operators instead of "if"
+          </li>
+          <li>
+          If really need to use "if" statement, then use multiple "if" instead of "if/else-if/else".
+          </li>
+          <li>
+          Avoid for loops, instead use array methods like map, filter, reduce.
+          </li>
+          <li>
+          Avoid callback-based asynchronous APIs
+          </li>
+        </ul>
+     </div>
+
+    <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 2.2rem 0">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Asynchronous Code
+        </h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Consume promises with async/await instead of "then" for best readability. Because "then" approach might produce lots of nested code.
+          </li>
+          <li>
+          Whenever possible, run promises in parallel ( Promise.all() ) to make application a bit faster.
+          </li>
+          <li>
+          Handle errors and promise rejections
+          </li>
+        </ul>
+     </div>
+
+     <h2>Imperative VS Declarative Code</h2>
+     <p style="margin: .5rem 0; font-size: 1.1rem"><i>There are two fundamentally different ways to write code which are also called paradigms. And these two paradigms are imperative and declarative.</i></p>
+
+     <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 1rem 0 2rem">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Imperative Programming
+        </h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Programmer explain "How to do things
+          </li>
+          <li>
+          We explain the computer every single step it has to follow in order to achieve a certain result. Example: step by step recipe of a cake.
+          </li>
+        </ul>
+        <div style="background: #151617; color: green; padding: 1rem; margin: .6rem 0">
+          const arr =  [2,4,6,8]; <br>
+            const doubled = []; <br>
+            for(let i = 0; i <= arr.length; i++) { <br>
+              doubled[i] = arr[i] * 2; <br>
+            })
+        </div>
+     </div>
+
+     <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 1rem 0 2rem">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Declarative Programming
+        </h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Programmer tells "What to do". Not how to do.
+          </li>
+          <li>
+          We simply describe the way the computer should achieve the result.
+          </li>
+          <li>
+          The HOW (step by step instructions) gets abstracted away.
+          </li>
+        </ul>
+        <div style="background: #151617; color: green; padding: 1rem; margin: .6rem 0">
+        const arr =  [2,4,6,8]; <br>
+        const doubled = arr.map(n => n * 2);
+        </div>
+
+        <p style="margin: .6rem 0; font-size: 1.1rem"><i>Now a days functional programming is considered as a sub paradigm of declarative programming paradigm.</i></p>
+     </div>
+
+
+     <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 1rem 0 2rem">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Functional Paradigm
+        </h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Declarative programming paradigm
+          </li>
+          <li>
+          Based on the idea of writing software by combining many <b>pure functions</b>, avoiding <b>side effects</b> and mutable data.
+          </li>
+        </ul>
+        
+
+        <p style="margin-top: 1rem"><b>Pure Function: </b> A function without side effects. Does not depend on external variables. Given the same inputs, always returns the same outputs.</p>
+
+        <p><b>Side Effects: </b> Modification (mutation) of any data outside of the function (mutating external variables, logging to console, writing to DOM etc) are called side effects.</p>
+
+        <p style="margin: .6rem 0; font-size: 1.1rem"><i>In javascript community, functional programming now has became the trend.</i></p>
+     </div>
+
+
+     <div style="border-bottom: 2px solid #444; padding-bottom: 1rem; margin: 1rem 0 2rem">
+        <h3 style="font-size: 1.5rem;font-wight: 500">Declarative Syntax
+        </h3>
+        <ul style="display: grid; gap: .5rem">
+          <li>
+          Use array and object destructuring
+          </li>
+          <li>
+          Use the spread operator (...)
+          </li>
+          <li>
+          Use the ternary (conditional) operator
+          </li>
+          <li>
+          Use template string
+          </li>
+        </ul>
+     </div>
+        `,
+  },
+  {
+    id: 6,
+    title: "Color Psychology in Web Design",
+    icon: "mdi-palette",
+    body: `
+    <p>Content Coming Soon</p>
+        `,
+  },
 ];
 export default blogs;

@@ -19,7 +19,7 @@ export default {
       if (!this.authUser) {
         this.$router.push("/login");
       }
-    }, 1000);
+    }, 500);
   },
 
   computed: {

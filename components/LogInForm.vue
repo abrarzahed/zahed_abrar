@@ -64,7 +64,9 @@ export default {
       const authUser = getAuth();
       signInWithEmailAndPassword(authUser, this.email, this.pass)
         .then((userObj) => {
+          // localStorage.setItem("abrarAuthUser", true);
           this.updateAuthUser(userObj.user);
+          console.log(userObj.user);
           this.loading = false;
           this.snackbar = { text: "Successfully logged in", color: "#59B984" };
           this.updateSnackbar(true);

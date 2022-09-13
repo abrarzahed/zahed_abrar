@@ -124,6 +124,7 @@ export default {
         "html",
         "css",
         "javascript",
+        "react",
         "vue.js",
         "nuxt.js",
         "vuetify",
@@ -134,6 +135,7 @@ export default {
       ],
       icons: [
         "mdi-language-css3",
+        "mdi-react",
         "mdi-nuxt",
         "mdi-vuejs",
         "mdi-vuetify",

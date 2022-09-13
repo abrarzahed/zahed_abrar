@@ -59,7 +59,11 @@
                 Contact Me
               </NuxtLink>
             </li>
-            <li
+
+            <!-- **************************************** 
+            COMMENT: Log In and add Project starts here
+            ***************************************** -->
+            <!-- <li
               v-if="!authUser"
               @click="toggleMenu"
               class="nav-item"
@@ -68,8 +72,8 @@
               <NuxtLink to="/login" class="nav-link" active-class="test">
                 Login
               </NuxtLink>
-            </li>
-            <li
+            </li> -->
+            <!-- <li
               v-if="authUser"
               @click="toggleMenu"
               class="nav-item"
@@ -82,7 +86,10 @@
               >
                 Add Projects
               </NuxtLink>
-            </li>
+            </li> -->
+            <!-- **************************************** 
+            COMMENT: Log In and add Project ends here   
+            ***************************************** -->
 
             <li
               v-if="authUser"
@@ -121,15 +128,20 @@ export default {
     };
   },
   mounted() {
-    /* 
+    /*
       COMMENT: subscription to auth: always listening to auth stage for any changes
     */
-    const user = getAuth();
-    onAuthStateChanged(user, (usr) => {
-      this.updateAuthUser(usr);
-    });
 
-    /* 
+    // const user = getAuth();
+    // onAuthStateChanged(user, (usr) => {
+    //   console.log("auth user in mounted", usr);
+    //   this.updateAuthUser(usr);
+    //   localStorage.setItem("authenticUser", usr);
+    //   const usssr = localStorage.getItem("authenticUser");
+    //   console.log("auth user from local storage", usssr);
+    // });
+
+    /*
       COMMENT: Tracking user activity & auto logout inactive user.
     */
     /*
@@ -177,7 +189,7 @@ export default {
     });
     */
 
-    /* 
+    /*
       COMMENT: In order to show custom scrollbar on top
     */
     window.addEventListener("scroll", () => {
@@ -186,6 +198,7 @@ export default {
       this.maxScrollHeight = this.scrollHeight - this.vewportHeight;
       this.percentage = `${(window.scrollY / this.maxScrollHeight) * 100}%`;
     });
+    console.log(this.authUser);
   },
 
   methods: {
@@ -198,6 +211,7 @@ export default {
       const User = getAuth();
       signOut(User)
         .then(() => {
+          // localStorage.setItem("abrarAuthUser", null);
           this.updateAuthUser(null);
           this.$router.push("/login");
         })

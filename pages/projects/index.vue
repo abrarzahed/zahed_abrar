@@ -34,6 +34,12 @@
             Vue & Nuxt
           </button>
           <button
+            @click="toggleActiveButton('reactNext')"
+            :class="{ active: activeTabItem === 'reactNext' }"
+          >
+            React & Next
+          </button>
+          <button
             @click="toggleActiveButton('js_css')"
             :class="{ active: activeTabItem === 'js_css' }"
           >
@@ -149,10 +155,13 @@ export default {
       fireProject: [],
       deleteDialog: false,
       selectedProject: {},
+      abrarAuthUser: null,
     };
   },
   mounted() {
     // console.log("auth user", this.authUser);
+    // this.abrarAuthUser = localStorage.getItem("abrarAuthUser");
+    // console.log(this.abrarAuthUser);
 
     onSnapshot(projectsCollectionsOrderRefs, (snapshot) => {
       let tempProjects = [];
@@ -197,6 +206,8 @@ export default {
         this.projects = this.vueNuxtProjects;
       } else if (value === "realProjects") {
         this.projects = this.realProjects;
+      } else if (value === "reactNext") {
+        this.projects = this.reactNextProjects;
       }
     },
     handleDeleteProject(project) {
@@ -225,6 +236,11 @@ export default {
     vueNuxtProjects() {
       return this.main.filter(
         (item) => item.icon === "mdi-vuejs" || item.icon === "mdi-nuxt"
+      );
+    },
+    reactNextProjects() {
+      return this.main.filter(
+        (item) => item.icon === "mdi-react" || item.icon === "mdi-react"
       );
     },
   },
@@ -299,14 +315,14 @@ export default {
             border-radius: 100px 0 0 100px;
           }
         }
-        &:nth-child(2) {
-          border-left: 1px solid #444;
-          border-right: 1px solid #444;
-        }
-        &:nth-child(3) {
-          border-left: 1px solid #444;
-          border-right: 1px solid #444;
-        }
+        // &:nth-child(2) {
+        //   border-left: 1px solid #444;
+        //   border-right: 1px solid #444;
+        // }
+        // &:nth-child(3) {
+        //   border-left: 1px solid #444;
+        //   border-right: 1px solid #444;
+        // }
 
         &:last-child {
           border-radius: 0 100px 100px 0;

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <v-form ref="form" v-model="isFormValid">
+    <v-form id="form" ref="form" v-model="isFormValid">
       <v-text-field
+        v-model.trim="formData.name"
         height="60"
         solo
         dark
@@ -11,6 +12,7 @@
         :rules="nameRules"
       ></v-text-field>
       <v-text-field
+        v-model.trim="formData.email"
         height="60"
         solo
         dark
@@ -20,6 +22,7 @@
         :rules="emailRules"
       ></v-text-field>
       <v-textarea
+        v-model.trim="formData.message"
         :rules="messaageRules"
         solo
         dark
@@ -28,7 +31,13 @@
         rows="4"
       ></v-textarea>
 
-      <v-btn :disabled="!isFormValid" dark block color="#59B984" x-large
+      <v-btn
+        @click="handleSubmit"
+        :disabled="!isFormValid"
+        dark
+        block
+        color="#59B984"
+        x-large
         >Submit</v-btn
       >
     </v-form>
@@ -36,9 +45,15 @@
 </template>
 
 <script>
+import emailjs from "emailjs-com";
 export default {
   data() {
     return {
+      formData: {
+        name: "",
+        email: "",
+        message: "",
+      },
       isFormValid: true,
       nameRules: [(v) => !!v || "Name is required *"],
       emailRules: [
@@ -47,6 +62,29 @@ export default {
       ],
       messaageRules: [(v) => !!v || "This field is required *"],
     };
+  },
+  methods: {
+    handleSubmit(e) {
+      // console.log("contact form submitting", this.formData);
+      // try {
+      //   emailjs.sendForm(
+      //     "service_vgnbtf4",
+      //     "template_9u0bevv",
+      //     "#form",
+      //     "WZnsGOPzp8huFIKWK",
+      //     this.formData
+      //   );
+      // } catch (error) {
+      //   console.log({ error });
+      // }
+      // Reset form field
+      // this.name = ''
+      // this.email = ''
+      // this.message = ''
+    },
+  },
+  mounted() {
+    // console.log("email", this.emailjs);
   },
 };
 </script>
