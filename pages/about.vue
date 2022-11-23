@@ -8,13 +8,14 @@
       <!-- <h2 class="sm-heading">Somthing About Me...</h2> -->
       <div class="about-info">
         <!--  -->
-        <NuxtImg
+        <!-- <NuxtImg
           src="code-removebg.png"
           sizes="sm:100vw md:40vw lg:400px"
           quality="80"
           format="webp"
           class="bio-image"
-        />
+        /> -->
+        <img src="code-removebg.png" class="bio-image" alt="" />
 
         <div class="bio">
           <!-- <h3 class=" text-secondary sm-heading">BIO</h3> -->
