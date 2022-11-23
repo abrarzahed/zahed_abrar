@@ -54,13 +54,14 @@
       <div class="projects">
         <div v-for="(project, i) in projects" :key="i" class="item">
           <div class="project-image">
-            <NuxtImg
+            <!-- <NuxtImg
               v-if="project.image.length > 0"
               :src="`${project.image}`"
               sizes="sm:100vw md:40vw lg:300px"
               quality="60"
               format="webp"
-            />
+            /> -->
+            <img :src="`${project.image}`" alt="" />
             <div v-if="project.icon" class="project-icon">
               <v-icon>{{ project.icon }}</v-icon>
             </div>
