@@ -1,6 +1,10 @@
 <template>
   <v-app class="body">
-    <div class="bg-img">
+    <div v-if="loading" class="loading">
+      <div class="spinner"></div>
+      <span>Loading...</span>
+    </div>
+    <div v-else class="bg-img">
       <div class="bar" :style="{ width: percentage }"></div>
       <header>
         <div @click="toggleMenu" class="menu-btn" :class="{ close: showMenu }">
@@ -63,7 +67,7 @@
             <!-- **************************************** 
             COMMENT: Log In and add Project starts here
             ***************************************** -->
-            <!-- <li
+            <li
               v-if="!authUser"
               @click="toggleMenu"
               class="nav-item"
@@ -72,8 +76,8 @@
               <NuxtLink to="/login" class="nav-link" active-class="test">
                 Login
               </NuxtLink>
-            </li> -->
-            <!-- <li
+            </li>
+            <li
               v-if="authUser"
               @click="toggleMenu"
               class="nav-item"
@@ -86,7 +90,7 @@
               >
                 Add Projects
               </NuxtLink>
-            </li> -->
+            </li>
             <!-- **************************************** 
             COMMENT: Log In and add Project ends here   
             ***************************************** -->
@@ -115,11 +119,13 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 export default {
   data() {
     return {
+      authUser: false,
+      loading: true,
       showMenu: false,
       percentage: null,
       scrollHeight: null,
@@ -127,19 +133,21 @@ export default {
       maxScrollHeight: null,
     };
   },
-  mounted() {
+  async mounted() {
     /*
       COMMENT: subscription to auth: always listening to auth stage for any changes
     */
+    const auth = await getAuth();
+    this.loading = false;
 
-    // const user = getAuth();
-    // onAuthStateChanged(user, (usr) => {
-    //   console.log("auth user in mounted", usr);
-    //   this.updateAuthUser(usr);
-    //   localStorage.setItem("authenticUser", usr);
-    //   const usssr = localStorage.getItem("authenticUser");
-    //   console.log("auth user from local storage", usssr);
-    // });
+    onAuthStateChanged(auth, (user) => {
+      this.updateAuthUser(user);
+      if (user) {
+        this.authUser = true;
+      } else {
+        this.authUser = false;
+      }
+    });
 
     /*
       COMMENT: Tracking user activity & auto logout inactive user.
@@ -198,7 +206,6 @@ export default {
       this.maxScrollHeight = this.scrollHeight - this.vewportHeight;
       this.percentage = `${(window.scrollY / this.maxScrollHeight) * 100}%`;
     });
-    console.log(this.authUser);
   },
 
   methods: {
@@ -211,7 +218,6 @@ export default {
       const User = getAuth();
       signOut(User)
         .then(() => {
-          // localStorage.setItem("abrarAuthUser", null);
           this.updateAuthUser(null);
           this.$router.push("/login");
         })
@@ -219,13 +225,28 @@ export default {
     },
   },
 
-  computed: {
-    ...mapGetters("auth/auth", ["authUser"]),
-  },
+  computed: {},
 };
 </script>
 
 <style lang="scss">
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  .spinner {
+    width: 100px;
+    height: 100px;
+    background: none;
+    border-radius: 50%;
+    border-top: 3px solid #fff;
+    border-bottom: 1px solid #fff;
+    animation: spinner 1s ease infinite;
+    margin-bottom: 20px;
+  }
+}
 #main {
   position: relative;
   .wp-icon {

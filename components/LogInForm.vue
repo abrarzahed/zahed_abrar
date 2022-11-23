@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default {
@@ -64,9 +64,8 @@ export default {
       const authUser = getAuth();
       signInWithEmailAndPassword(authUser, this.email, this.pass)
         .then((userObj) => {
-          // localStorage.setItem("abrarAuthUser", true);
-          this.updateAuthUser(userObj.user);
-          console.log(userObj.user);
+          // this.updateAuthUser(userObj.user);
+          // console.log(userObj.user);
           this.loading = false;
           this.snackbar = { text: "Successfully logged in", color: "#59B984" };
           this.updateSnackbar(true);
@@ -79,9 +78,7 @@ export default {
         });
     },
   },
-  computed: {
-    ...mapGetters("auth/auth", ["authUser"]),
-  },
+  computed: {},
 };
 </script>
 

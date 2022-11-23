@@ -127,9 +127,9 @@ COMMENT: imports
 ***************************************** */
 
 import { mapActions, mapGetters } from "vuex";
-import { colRef, projectsCollectionsOrderRefs } from "@/firebase";
-import { onSnapshot, getDocs } from "firebase/firestore";
-
+import { projectsCollectionsOrderRefs } from "@/firebase";
+import { onSnapshot } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 export default {
   async fetch() {},
   head: {
@@ -147,6 +147,7 @@ export default {
   },
   data() {
     return {
+      authUser: false,
       initial: [],
       main: [],
       projects: [],
@@ -155,14 +156,9 @@ export default {
       fireProject: [],
       deleteDialog: false,
       selectedProject: {},
-      abrarAuthUser: null,
     };
   },
-  mounted() {
-    // console.log("auth user", this.authUser);
-    // this.abrarAuthUser = localStorage.getItem("abrarAuthUser");
-    // console.log(this.abrarAuthUser);
-
+  async mounted() {
     onSnapshot(projectsCollectionsOrderRefs, (snapshot) => {
       let tempProjects = [];
       snapshot.docs.forEach((doc) => {
@@ -172,27 +168,14 @@ export default {
       this.main = tempProjects;
       this.projects = tempProjects;
       this.loading = false;
-      // console.log(this.initial);
     });
 
-    /* 
-     get data without real time subscription.
-   */
-
-    /*
-    getDocs(projectsCollectionsOrderRefs)
-      .then((snaps) => {
-        let tempProjects = [];
-        snaps.forEach((doc) => {
-          tempProjects.push({ ...doc.data(), id: doc.id });
-        });
-        this.initial = tempProjects;
-        this.main = tempProjects;
-        this.projects = tempProjects;
-        this.loading = false;
-      })
-      .catch((err) => console.log(err.message));
-      */
+    const auth = await getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.authUser = true;
+      }
+    });
   },
   methods: {
     ...mapActions("auth/auth", ["updateDeleteDialog", "updateEditDialog"]),
@@ -220,8 +203,16 @@ export default {
       this.updateEditDialog(true);
     },
   },
+  async updated() {
+    const auth = await getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.authUser = true;
+      }
+    });
+  },
   computed: {
-    ...mapGetters("auth/auth", ["authUser"]),
+    // ...mapGetters("auth/auth", ["authUser"]),
     realProjects() {
       return this.main.filter((item) => item.isReal);
     },
