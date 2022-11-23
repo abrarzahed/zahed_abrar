@@ -45,7 +45,6 @@
 </template>
 
 <script>
-import emailjs from "emailjs-com";
 export default {
   data() {
     return {
@@ -83,9 +82,7 @@ export default {
       // this.message = ''
     },
   },
-  mounted() {
-    // console.log("email", this.emailjs);
-  },
+  mounted() {},
 };
 </script>
 
