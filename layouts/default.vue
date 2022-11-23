@@ -119,7 +119,6 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 export default {
   data() {
@@ -141,7 +140,6 @@ export default {
     this.loading = false;
 
     onAuthStateChanged(auth, (user) => {
-      this.updateAuthUser(user);
       if (user) {
         this.authUser = true;
       } else {
@@ -209,7 +207,6 @@ export default {
   },
 
   methods: {
-    ...mapActions("auth/auth", ["updateAuthUser"]),
     toggleMenu() {
       this.showMenu = !this.showMenu;
     },

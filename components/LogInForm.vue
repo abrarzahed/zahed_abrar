@@ -58,7 +58,7 @@ export default {
   },
 
   methods: {
-    ...mapActions("auth/auth", ["updateAuthUser", "updateSnackbar"]),
+    ...mapActions("auth/auth", ["updateSnackbar"]),
     login() {
       this.loading = true;
       const authUser = getAuth();
