@@ -23,14 +23,7 @@
         required
         v-model.trim="project.image"
       ></v-text-field>
-      <!-- <v-text-field
-        :rules="iconRules"
-        dark
-        filled
-        label="Project icon"
-        required
-        v-model.trim="project.icon"
-      ></v-text-field> -->
+
       <v-select
         filled
         dark
@@ -46,8 +39,6 @@
         dark
         filled
         label="Project description"
-        required
-        :rules="descRules"
         v-model.trim="project.desc"
       ></v-textarea>
       <v-text-field
@@ -132,6 +123,7 @@ export default {
         "firebase",
         "bootstrap",
         "tailwindcss",
+        "stripe",
       ],
       icons: [
         "mdi-language-css3",

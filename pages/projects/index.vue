@@ -126,7 +126,7 @@
 COMMENT: imports
 ***************************************** */
 
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 import { projectsCollectionsOrderRefs } from "@/firebase";
 import { onSnapshot } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
