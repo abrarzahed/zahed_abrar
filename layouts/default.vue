@@ -1,5 +1,8 @@
 <template>
   <v-app class="body">
+    <div class="bg-animation">
+      <BgAnimation />
+    </div>
     <div v-if="loading" class="loading">
       <div class="spinner"></div>
       <span>Loading...</span>
@@ -228,6 +231,15 @@ export default {
 </script>
 
 <style lang="scss">
+.bg-animation {
+  position: fixed;
+  inset: 0;
+  /* top: 0;
+  left: 0;
+  width: 100%; */
+  overflow: hidden;
+  max-height: 100%;
+}
 .loading {
   position: absolute;
   top: 50%;
