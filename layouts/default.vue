@@ -234,11 +234,16 @@ export default {
 .bg-animation {
   position: fixed;
   inset: 0;
-  /* top: 0;
-  left: 0;
-  width: 100%; */
   overflow: hidden;
   max-height: 100%;
+  background-color: #1d1d1d;
+  opacity: 0.1;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #1d1d1d 40px
+    ),
+    repeating-linear-gradient(#78787855, #787878);
 }
 .loading {
   position: absolute;
