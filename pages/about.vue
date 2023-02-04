@@ -15,7 +15,7 @@
           format="webp"
           class="bio-image"
         /> -->
-        <img src="code-removebg.png" class="bio-image" alt="" />
+        <img src="~/assets/img/code-removebg.png" class="bio-image" alt="" />
 
         <div class="bio">
           <!-- <h3 class=" text-secondary sm-heading">BIO</h3> -->
@@ -113,7 +113,7 @@ export default {
         {
           type: "image",
           text: "next js",
-          src: "nextjs-logo.png",
+          src: require("~/assets/img/nextjs-logo.png"),
         },
         {
           type: "icon",
@@ -163,7 +163,7 @@ export default {
         {
           type: "image",
           text: "figma",
-          src: "images.png",
+          src: require("~/assets/img/figma-logo.png"),
         },
       ],
     };
