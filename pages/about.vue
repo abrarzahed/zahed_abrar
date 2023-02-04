@@ -112,13 +112,24 @@ export default {
         },
         {
           type: "image",
+          text: "redux",
+          src: require("~/assets/img/redux-logo.png"),
+        },
+        {
+          type: "image",
           text: "next js",
           src: require("~/assets/img/nextjs-logo.png"),
         },
+
         {
           type: "icon",
           text: "material ui",
           icon: "mdi-material-ui",
+        },
+        {
+          type: "image",
+          text: "chakra ui",
+          src: require("~/assets/img/chakra-ui-logo.png"),
         },
         {
           type: "icon",
@@ -210,6 +221,7 @@ export default {
     }
     img {
       width: 90px;
+      filter: grayscale(100);
     }
   }
 }
