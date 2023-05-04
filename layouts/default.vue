@@ -53,6 +53,15 @@
               class="nav-item"
               :class="{ show: showMenu }"
             >
+              <NuxtLink to="/credentials" class="nav-link" active-class="test">
+                credentials
+              </NuxtLink>
+            </li>
+            <li
+              @click="toggleMenu"
+              class="nav-item"
+              :class="{ show: showMenu }"
+            >
               <NuxtLink to="/blogs" class="nav-link" active-class="test">
                 Blogs
               </NuxtLink>
