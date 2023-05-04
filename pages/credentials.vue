@@ -7,7 +7,7 @@
       </h1>
       <div class="credentials__images">
         <img src="~/assets/img/credentials/javascriptDSA_FCC.png" alt="" />
-        <img src="~/assets/img/credentials/fcc.jpg" alt="" />
+        <img src="~/assets/img/credentials/fcc.png" alt="" />
         <img src="~/assets/img/credentials/netlify.png" alt="" />
         <img src="~/assets/img/credentials/google.jpg" alt="" />
         <img src="~/assets/img/credentials/solo_css.jpg" alt="" />
