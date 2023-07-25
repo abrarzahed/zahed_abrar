@@ -15,7 +15,7 @@
           format="webp"
           class="bio-image"
         /> -->
-        <img src="~/assets/img/code-removebg.png" class="bio-image" alt="" />
+        <img src="~/assets/img/own.jpeg" class="bio-image" alt="" />
 
         <div class="bio">
           <!-- <h3 class=" text-secondary sm-heading">BIO</h3> -->

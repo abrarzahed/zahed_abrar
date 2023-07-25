@@ -2,8 +2,9 @@
   <div>
     <main id="home">
       <h1 class="lg-heading">
+        <img src="~/assets/img/logo.png" class="bio-image" alt="" />
         Zahed
-        <span class="text-secondary">Abrar</span>
+        <!-- <span class="text-secondary">Abrar</span> -->
       </h1>
       <h2 class="sm-heading scnd">
         <span>Front-end Software Developer.</span>

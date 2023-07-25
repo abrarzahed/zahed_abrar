@@ -107,13 +107,15 @@
     }
 
     .portrait {
-      width: 250px;
-      height: 250px;
-      background: url("@/assets/img/code.png");
-      background-size: cover;
+      width: 200px;
+      height: 200px;
+      background: url("@/assets/img/logo.png");
+      background-repeat: no-repeat;
+      background-size: contain;
       background-position: center;
       border-radius: 50%;
-      border: solid 3px $secondary-color;
+      outline: solid 8px $secondary-color;
+      outline-offset: 1.5rem;
       z-index: 200;
     }
   }
