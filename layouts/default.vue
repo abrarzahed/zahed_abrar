@@ -1,8 +1,11 @@
 <template>
   <v-app class="body">
-    <div class="bg-animation">
-      <BgAnimation />
-    </div>
+    <!-- <div class="bg-animation"> -->
+    <video class="bg-animation" id="background-video" autoplay loop muted>
+      <source src="~/assets/animation.mp4" type="video/mp4" />
+    </video>
+    <!-- <BgAnimation /> -->
+    <!-- </div> -->
     <div v-if="loading" class="loading">
       <div class="spinner"></div>
       <span>Loading...</span>
@@ -242,17 +245,21 @@ export default {
 <style lang="scss">
 .bg-animation {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: -48%;
+
   overflow: hidden;
-  max-height: 100%;
-  background-color: #1d1d1d;
-  opacity: 0.1;
-  background-image: repeating-radial-gradient(
+  /* max-height: 100%; */
+  height: 120%;
+  /* background-color: #1d1d1d; */
+  opacity: 0.5;
+  /* background-image: repeating-radial-gradient(
       circle at 0 0,
       transparent 0,
       #1d1d1d 40px
     ),
-    repeating-linear-gradient(#78787855, #787878);
+    repeating-linear-gradient(#78787855, #787878); */
+  width: 200%;
 }
 .loading {
   position: absolute;
