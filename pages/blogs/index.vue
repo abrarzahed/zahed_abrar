@@ -5,8 +5,10 @@
       <span>Loading...</span>
     </div>
     <main v-if="!loading">
-      <h1 class="lg-heading">
+      <h1 class="lg-heading blogs-heading">
+        <code>&lt;<span class="tag">h1</span>&gt;</code>
         <span class="text-secondary">Blogs</span>
+        <code>&lt;/<span class="tag">h1</span>&gt; </code>
       </h1>
 
       <div class="blogs">
@@ -80,11 +82,12 @@ export default {
   column-gap: 32px;
   row-gap: 56px;
   @media screen and(max-width: 768px) {
+    margin-top: 80px;
     justify-content: center;
   }
 
   &-item {
-    background: #2a2a2a;
+    background: #061126;
     padding-top: 40px;
     border-radius: 8px;
     position: relative;
@@ -98,7 +101,7 @@ export default {
       color: #b1b2b3;
     }
     &:hover {
-      background: #2d2f2f;
+      background: #10223f;
       box-shadow: none;
     }
 
@@ -108,7 +111,7 @@ export default {
       position: absolute;
       top: -44px;
       left: 24px;
-      background: #1d1d1d;
+      background: #10223f;
     }
     h2 {
       font-size: 1.6rem;

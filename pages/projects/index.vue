@@ -6,8 +6,12 @@
     </div>
     <main v-else id="work">
       <h1 class="lg-heading">
-        My
-        <span class="text-secondary">Work</span>
+        <code>&lt;<span class="tag">h1</span>&gt;</code>
+        <span>
+          My
+          <span class="text-secondary">Work</span>
+        </span>
+        <code>&lt;/<span class="tag">h1</span>&gt; </code>
       </h1>
       <!-- **************************************** 
       COMMENT: projects tab  
@@ -246,9 +250,10 @@ export default {
   .projects-tab__header {
     display: flex;
     align-items: center;
-    background: #2a2a2a;
+    background: #061126;
     padding: 0.5rem 1rem;
     margin-bottom: 3rem;
+    border-radius: 8px;
     justify-content: space-between;
     @media (max-width: 1020px) {
       padding: 1rem;
@@ -264,7 +269,7 @@ export default {
     }
     &__btn__group {
       display: flex;
-      background: #1f1f1f;
+      background: #10223f;
       align-items: center;
       border-radius: 100px;
       button {

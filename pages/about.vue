@@ -2,8 +2,12 @@
   <div>
     <main id="about">
       <h1 class="lg-heading">
-        About
-        <span class="text-secondary">Me</span>
+        <code>&lt;<span class="tag">h1</span>&gt;</code>
+        <span>
+          About
+          <span class="text-secondary">Me</span>
+        </span>
+        <code>&lt;/<span class="tag">h1</span>&gt; </code>
       </h1>
       <!-- <h2 class="sm-heading">Something About Me...</h2> -->
       <div class="about-info">
@@ -198,8 +202,8 @@ export default {
   gap: 1.5rem;
   &__icon {
     border-radius: 4px;
-    padding: 0.5rem;
-    background: #2a2a2a;
+    padding: 1rem 0.5rem;
+    background: #061126;
     display: grid;
     gap: 0;
     place-items: center;

@@ -2,8 +2,12 @@
   <div>
     <main id="contact">
       <h1 class="lg-heading">
-        Contact
-        <span class="text-secondary">Me</span>
+        <code>&lt;<span class="tag">h1</span>&gt;</code>
+        <span>
+          Contact
+          <span class="text-secondary">Me</span>
+        </span>
+        <code>&lt;/<span class="tag">h1</span>&gt; </code>
       </h1>
       <h2 class="sm-heading">Get In Touch...</h2>
       <v-row align="center">
@@ -55,7 +59,7 @@ export default {
 <style lang="scss">
 .form-part {
   padding: 30px;
-  background: #2a2a2a;
+  background: #030c1a;
   border-radius: 12px;
   @media (max-width: 600px) {
     padding: 10px;
@@ -72,7 +76,7 @@ export default {
     text-align: center;
     padding: 30px 15px;
     position: relative;
-    background: #2a2a2a;
+    background: #030c1a;
     border-radius: 12px;
     .v-icon {
       font-size: 60px;

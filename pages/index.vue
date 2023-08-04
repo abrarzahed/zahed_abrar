@@ -1,10 +1,14 @@
 <template>
   <div>
     <main id="home">
-      <h1 class="lg-heading">
-        <img src="~/assets/img/logo.png" class="bio-image" alt="" />
-        Zahed
-        <!-- <span class="text-secondary">Abrar</span> -->
+      <h1 class="lg-heading home-title">
+        <code>&lt;<span class="tag">h1</span>&gt;</code>
+        <!-- <img src="~/assets/img/logo.png" class="bio-image" alt="" /> -->
+        <span>
+          Zahed
+          <span class="text-secondary">Abrar</span>
+        </span>
+        <code>&lt;/<span class="tag">h1</span>&gt; </code>
       </h1>
       <h2 class="sm-heading scnd">
         <span>Front-end Software Developer.</span>

@@ -21,21 +21,21 @@ export default {
     return {
       blogs: blogs,
       loading: true,
-      snippets: ""
+      snippets: "",
     };
   },
   mounted() {
     // console.log(this.singleBlog);
     this.loading = false;
 
-    const stringToHTML = function(str) {
+    const stringToHTML = function (str) {
       const dom = document.createElement("div");
       dom.innerHTML = str;
       const text = dom.firstElementChild.textContent.slice(0, 110) + "...";
       return text;
     };
 
-    this.blogs.map(element => {
+    this.blogs.map((element) => {
       let snippet = stringToHTML(element.body);
       element.snippet = snippet;
     });
@@ -43,9 +43,11 @@ export default {
   methods: {},
   computed: {
     singleBlog() {
-      return this.blogs.filter(item => item.title == this.$route.params.title);
-    }
-  }
+      return this.blogs.filter(
+        (item) => item.title == this.$route.params.title
+      );
+    },
+  },
 };
 </script>
 
@@ -54,6 +56,9 @@ export default {
   max-width: 800px;
   margin: auto;
   margin-top: 3rem;
+  background: #10223f;
+  padding: 1.5rem;
+  border-radius: 8px;
   h1 {
     font-size: 3rem;
     margin-bottom: 1.5rem;

@@ -2,8 +2,11 @@
   <div>
     <main id="credentials">
       <h1 class="lg-heading">
-        <span class="text-secondary">Few</span>
-        Credentials
+        <code>&lt;<span class="tag">h1</span>&gt;</code>
+        <span>
+          <span class="text-secondary">Credentials</span>
+        </span>
+        <code>&lt;/<span class="tag">h1</span>&gt; </code>
       </h1>
       <div class="credentials__images">
         <img src="~/assets/img/credentials/javascriptDSA_FCC.png" alt="" />
