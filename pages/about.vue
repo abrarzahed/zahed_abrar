@@ -20,6 +20,7 @@
           class="bio-image"
         /> -->
         <img src="~/assets/img/own.jpeg" class="bio-image" alt="" />
+        <!-- <img src="~/assets/img/credentials/fcc.png" class="bio-image" alt="" /> -->
 
         <div class="bio">
           <!-- <h3 class=" text-secondary sm-heading">BIO</h3> -->
@@ -33,11 +34,19 @@
             on WhatsApp icon bellow and let me convert your dream into a web
             application.
           </p> -->
-          <img
-            src="~/assets/img/info_code_.png"
-            alt=""
-            class="bio-image code"
-          />
+          <img src="~/assets/img/info_code_.png" alt="" class="bio-image" />
+        </div>
+        <div class="bio-text">
+          <p>
+            I am Abrar Hussen Zahed. Introducing myself as a professional and
+            passionate front-end web developer. I have developed a huge number
+            of web applications. Most comfortable with javascript. Familiar with
+            frameworks like... Bootstrap, Tailwind CSS, jquery, react.js,
+            next.js, vue.js, nuxt.js. Besides, I have experience in UI/UX design
+            and WordPress Customization. Isn't it superb?😎. If it is then click
+            on WhatsApp icon bellow and let me convert your dream into a web
+            application.
+          </p>
         </div>
 
         <div class="job job-2">

@@ -75,6 +75,7 @@ h3 {
     color: #64c6f4;
     font-weight: bolder;
   }
+
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 1rem;
@@ -179,6 +180,7 @@ main {
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     "bioimage bio bio"
+    "bioText bioText bioText"
     "job2 job3 job4";
 
   .bio-image {
@@ -208,6 +210,7 @@ main {
     h3 {
       font-weight: 700;
     }
+
     p {
       font-weight: 400 !important;
       font-size: 1.4rem;
@@ -231,6 +234,44 @@ main {
         border: none;
         // background: none;
         // text-align: center;
+      }
+    }
+  }
+  .bio-text {
+    grid-area: bioText;
+    width: 100%;
+    background: #061126;
+    padding: 2rem;
+    border-radius: 12px;
+    position: relative;
+    isolation: isolate;
+    &::before {
+      content: "“";
+      position: absolute;
+      top: -70px;
+      left: -20px;
+      font-size: 180px;
+      z-index: -1;
+      opacity: 0.2;
+    }
+    &::after {
+      content: "”";
+      position: absolute;
+      bottom: -160px;
+      right: -20px;
+      font-size: 180px;
+      z-index: -1;
+      opacity: 0.2;
+    }
+    p {
+      font-weight: 400 !important;
+      font-size: 1.4rem;
+      text-align: left;
+      color: #b1b2b3;
+      letter-spacing: 1px;
+      @media (max-width: 600px) {
+        letter-spacing: 0.7px;
+        font-size: 1rem;
       }
     }
   }

@@ -12,9 +12,10 @@
       </h1>
       <h2 class="sm-heading scnd">
         <span>
-          <span class="curly-braces">{</span> Front-end Software Developer
-          <span class="curly-braces">}</span></span
-        >
+          <span class="curly-braces">{</span>
+          <span class="curly-braces_text">Front-end Software Developer</span>
+          <span class="curly-braces">}</span>
+        </span>
         <button @click="goToWorkPage">See My Projects</button>
       </h2>
       <div class="icons">
