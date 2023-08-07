@@ -71,6 +71,10 @@ h3 {
   .tag {
     color: #ff70c1;
   }
+  .curly-braces {
+    color: #64c6f4;
+    font-weight: bolder;
+  }
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 1rem;
@@ -185,20 +189,22 @@ main {
     height: 100%;
     background: #061126;
     border-radius: 12px;
-    filter: blur(80);
-
-    img {
-      width: 100%;
-      object-fit: contain;
-    }
+    // max-height: 400px;
+    object-fit: cover;
   }
 
   .bio {
     grid-area: bio;
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
     display: grid;
-    align-content: center;
-    text-align: center;
+    // align-content: center;
+    // text-align: center;
+    background: #061126;
+    padding: 20px;
+    border-left: 10px solid $secondary-color;
+    // min-height: 500px;
+    padding-left: 30px;
+
     h3 {
       font-weight: 700;
     }
@@ -206,11 +212,17 @@ main {
       font-weight: 400 !important;
       font-size: 1.4rem;
       text-align: left;
-      background: #061126;
       color: #b1b2b3;
       padding: 20px 16px 20px 20px;
       border-left: 10px solid $secondary-color;
       letter-spacing: 1px;
+
+      img {
+        background: #061126;
+        max-width: 100%;
+        object-fit: contain;
+        height: 100%;
+      }
 
       @media (max-width: 600px) {
         // padding: 0 1rem;

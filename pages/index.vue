@@ -11,7 +11,10 @@
         <code>&lt;/<span class="tag">h1</span>&gt; </code>
       </h1>
       <h2 class="sm-heading scnd">
-        <span>Front-end Software Developer.</span>
+        <span>
+          <span class="curly-braces">{</span> Front-end Software Developer
+          <span class="curly-braces">}</span></span
+        >
         <button @click="goToWorkPage">See My Projects</button>
       </h2>
       <div class="icons">

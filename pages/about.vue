@@ -23,7 +23,7 @@
 
         <div class="bio">
           <!-- <h3 class=" text-secondary sm-heading">BIO</h3> -->
-          <p>
+          <!-- <p>
             I am Abrar Hussen Zahed. Introducing myself as a professional and
             passionate front-end web developer. I have developed a huge number
             of web applications. Most comfortable with javascript. Familiar with
@@ -32,7 +32,12 @@
             and WordPress Customization. Isn't it superb?😎. If it is then click
             on WhatsApp icon bellow and let me convert your dream into a web
             application.
-          </p>
+          </p> -->
+          <img
+            src="~/assets/img/info_code_.png"
+            alt=""
+            class="bio-image code"
+          />
         </div>
 
         <div class="job job-2">
