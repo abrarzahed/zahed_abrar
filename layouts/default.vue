@@ -56,8 +56,8 @@
               class="nav-item"
               :class="{ show: showMenu }"
             >
-              <NuxtLink to="/credentials" class="nav-link" active-class="test">
-                Credentials
+              <NuxtLink to="/achievements" class="nav-link" active-class="test">
+                Achievements
               </NuxtLink>
             </li>
             <li
