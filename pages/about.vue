@@ -36,7 +36,20 @@
           </p> -->
           <img src="~/assets/img/info_code_.png" alt="" class="bio-image" />
         </div>
+
         <div class="bio-text">
+          <h3 style="font-size: 2.5rem; margin-bottom: 1rem; color: #59b984">
+            Activities
+          </h3>
+          <img
+            src="https://ghchart.rshah.org/abrarzahed"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            width="100%"
+            style="margin-bottom: 2rem"
+          />
+          <h3 style="font-size: 2rem; color: #59b984">Intro</h3>
           <p>
             I am Abrar Hussen Zahed. Introducing myself as a professional and
             passionate front-end web developer. I have developed a huge number
