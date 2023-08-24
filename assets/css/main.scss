@@ -52,20 +52,14 @@ h3 {
   margin: 0;
   font-weight: 400;
   font-family: "Josefin Sans", sans-serif;
-  font-family: "Monofett", monospace;
-  font-family: "Tilt Prism", cursive;
 
   &.lg-heading {
-    font-family: "Tilt Prism", cursive;
     font-size: 5rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 3rem;
-    * {
-      font-family: "Tilt Prism", cursive;
-    }
 
     &.home-title {
       margin-bottom: 1rem;
